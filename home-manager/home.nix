@@ -46,7 +46,12 @@
     username = "phygson";
     homeDirectory = "/home/phygson";
   };
-  home.packages = with pkgs; [ vscodium-fhs ];
+  home.packages = with pkgs; [ vscodium-fhs
+                               gtklock
+                               gtklock-powerbar-module
+                               gtklock-playerctl-module
+                               gtklock-userinfo-module
+                             ];
 
   programs.nixvim = {
     enable = true;
@@ -77,7 +82,7 @@
           "$mod, B, exec, firefox"
           "$mod, RETURN, exec, kitty"
           "$mod, W, killactive"
-          "$mod, L, exec, gtklock -m /run/current-system/sw/lib/gtklock/powerbar-module.so -m /run/current-system/sw/lib/gtklock/playerctl-module.so -m /run/current-system/sw/lib/gtklock/userinfo-module.so"
+          "$mod, L, exec, gtklock -m ${pkgs.gtklock-powerbar-module.out}/lib/gtklock/powerbar-module.so -m ${pkgs.gtklock-playerctl-module.out}/lib/gtklock/playerctl-module.so -m ${pkgs.gtklock-userinfo-module.out}/lib/gtklock/userinfo-module.so"
           "SUPERALT, Q, exit"
           "$mod, D, exec, wofi -S drun"
         ] 
