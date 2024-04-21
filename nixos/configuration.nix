@@ -77,7 +77,7 @@
     # Deduplicate and optimize nix store
     auto-optimise-store = true;
   };
-`
+
   networking.hostName = "grob";
   networking.networkmanager.enable = true;
 
