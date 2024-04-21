@@ -139,6 +139,8 @@
     theme = "Gruvbox Dark";
   };
 
+  programs.wofi.enable = true;
+
   z.rebuild.enable = true;
 
   systemd.user.startServices = "sd-switch";
