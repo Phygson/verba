@@ -8,7 +8,7 @@
 }: {
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
-    outputs.homeManagerModules.bash_aliases
+    outputs.homeManagerModules.rebuild
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
@@ -61,11 +61,14 @@
   programs.gh.enable = true;
   programs.firefox.enable = true;
 
-  programs.bash.enable = true;
-  z.bash_aliases.enable = true;
+  programs.bash = {
+    enable = true;
+    shellAliases.cdnix = "cd /etc/nixos/nix-flake";
+  };
   programs.fzf.enable = true;
   programs.fish = {
     enable = true;
+    shellAliases.cdnix = "cd /etc/nixos/nix-flake";
     plugins = with pkgs.fishPlugins; [ 
       {
         name = "pure";
@@ -85,6 +88,8 @@
     settings.shell = "fish";
     theme = "Gruvbox Dark";
   };
+
+  z.rebuild.enable = true;
 
   systemd.user.startServices = "sd-switch";
 

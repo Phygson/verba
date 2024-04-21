@@ -1,3 +1,3 @@
 {
-  bash_aliases = import ./bash_aliases.nix;
+  rebuild = import ./rebuild.nix;
 }
