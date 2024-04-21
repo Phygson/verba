@@ -77,6 +77,8 @@
     useXkbConfig = true; # use xkb.options in tty.
   };
 
+  programs.hyprland.enable = true;
+
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;

@@ -56,6 +56,50 @@
     };
   };
 
+  wayland.windowManager.hyprland = {
+    enable = true;
+    # enableNvidiaPatches = true;
+    extraConfig = ''
+      env = LIBVA_DRIVER_NAME,nvidia
+      env = XDG_SESSION_TYPE,wayland
+      env = GBM_BACKEND,nvidia-drm
+      env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+      env = WLR_NO_HARDWARE_CURSORS,1
+    '';
+    settings = {
+      "$mod" = "SUPER";
+      bind = 
+        [
+          "$mod, B, exec, firefox"
+          "$mod, RETURN, exec, kitty"
+          "$mod, W, killactive"
+          "SUPERALT, Q, exit"
+        ];
+      bindm = 
+        [
+          "$mod, mouse:272, movewindow"
+          "$mod, mouse:273, resizewindow"
+        ];
+      input = {
+        "kb_layout" = "us,ru";
+        "kb_options" = "grp:alt_shift_toggle";
+        "follow_mouse" = "1";
+      };
+      animations = {
+        "enabled" = "yes";
+        "bezier" = "myBezier, 0.05, 0.9, 0.1, 1.05";
+
+        "animation" = [ 
+          "windows, 1, 3, myBezier"
+          "windowsOut, 1, 3, default, popin 80%"
+          "border, 1, 4, default"
+          "fade, 1, 3, default"
+          "workspaces, 1, 2, default"
+        ];
+      };
+    };
+  };
+
   programs.home-manager.enable = true;
   programs.git.enable = true;
   programs.gh.enable = true;
