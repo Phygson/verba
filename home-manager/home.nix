@@ -8,7 +8,7 @@
 }: {
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
-    # outputs.homeManagerModules.example
+    outputs.homeManagerModules.bash_aliases
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
@@ -48,19 +48,35 @@
   };
   home.packages = with pkgs; [ vscodium-fhs ];
 
+  programs.nixvim = {
+    enable = true;
+    colorschemes.gruvbox.enable = true;
+    plugins = {
+      nix.enable = true;
+    };
+  };
+
   programs.home-manager.enable = true;
   programs.git.enable = true;
   programs.gh.enable = true;
   programs.firefox.enable = true;
 
-  programs.bash = {
+  programs.bash.enable = true;
+  z.bash_aliases.enable = true;
+  programs.fzf.enable = true;
+  programs.fish = {
     enable = true;
-    shellAliases = {
-      cdnc = "cd /etc/nixos/nix-flake/";
-      nrbs = "sudo nixos-rebuild switch --flake /etc/nixos/nix-flake/";
-      nrbh = "home-manager switch --flake /etc/nixos/nix-flake/";
-      nrba = "nrbs; nrbh";
-    };
+    plugins = with pkgs.fishPlugins; [ 
+      {
+        name = "pure";
+        src = pure.src;
+      }
+
+      {
+        name = "fzf.fish";
+        src = fzf-fish.src;
+      }
+    ];
   };
 
   systemd.user.startServices = "sd-switch";
