@@ -65,6 +65,7 @@
   programs.bash = {
     enable = true;
     shellAliases = {
+      cdnc = "cd /etc/nixos/nix-flake/";
       nrbs = "sudo nixos-rebuild switch --flake /etc/nixos/nix-flake/";
       nrbh = "home-manager switch --flake /etc/nixos/nix-flake/";
       nrba = "nrbs; nrbh";
