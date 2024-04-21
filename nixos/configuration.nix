@@ -104,6 +104,7 @@
     gtklock-powerbar-module
     gtklock-userinfo-module
     gtklock-playerctl-module
+    pavucontrol
   ];
 
 
