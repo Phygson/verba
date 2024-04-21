@@ -75,6 +75,7 @@
           "$mod, W, killactive"
           "$mod, L, exec, gtklock -m /run/current-system/sw/lib/gtklock/powerbar-module.so -m /run/current-system/sw/lib/gtklock/playerctl-module.so -m /run/current-system/sw/lib/gtklock/userinfo-module.so"
           "SUPERALT, Q, exit"
+          "$mod, D, exec, wofi -S drun"
         ];
       bindm = 
         [
