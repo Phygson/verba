@@ -56,6 +56,10 @@
     };
   };
 
+  gtk.enable = true;
+  gtk.theme.package = pkgs.orchis-theme;
+  gtk.theme.name = "Orchis";
+
   wayland.windowManager.hyprland = {
     enable = true;
     # enableNvidiaPatches = true;
