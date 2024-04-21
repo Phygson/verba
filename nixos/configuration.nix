@@ -101,6 +101,9 @@
   environment.systemPackages = with pkgs; [
     neovim
     gtklock
+    gtklock-powerbar-module
+    gtklock-userinfo-module
+    gtklock-playerctl-module
   ];
 
 

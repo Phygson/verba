@@ -73,7 +73,7 @@
           "$mod, B, exec, firefox"
           "$mod, RETURN, exec, kitty"
           "$mod, W, killactive"
-          "$mod, L, exec, gtklock"
+          "$mod, L, exec, gtklock -m /run/current-system/sw/lib/gtklock/powerbar-module.so -m /run/current-system/sw/lib/gtklock/playerctl-module.so -m /run/current-system/sw/lib/gtklock/userinfo-module.so"
           "SUPERALT, Q, exit"
         ];
       bindm = 
@@ -125,6 +125,11 @@
         src = fzf-fish.src;
       }
     ];
+  };
+  #programs.command-not-found.enable = true;
+  programs.nix-index = {
+    enable = true;
+    enableFishIntegration = true;
   };
 
   programs.kitty = {
