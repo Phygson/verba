@@ -93,7 +93,8 @@
   services.xserver.enable = true;
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.xkb.layout = "us";
+  services.xserver.layout = "us,ru";
+  services.xserver.xkbOptions = "grp:alt_shift_toggle";
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
