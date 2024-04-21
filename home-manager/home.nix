@@ -48,7 +48,7 @@
   };
 
   home = {
-    phygson = "phygson";
+    username = "phygson";
     homeDirectory = "/home/phygson";
   };
 
