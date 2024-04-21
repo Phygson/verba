@@ -62,6 +62,15 @@
   programs.gh.enable = true;
   programs.firefox.enable = true;
 
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      nrbs = "sudo nixos-rebuild switch --flake /etc/nixos/nix-flake/";
+      nrbh = "home-manager switch --flake /etc/nixos/nix-flake/";
+      nrba = "nrbs; nrbh";
+    };
+  };
+
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 

@@ -129,11 +129,12 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  users.groups.sysconfmaster = {};
   users.users = {
     phygson = {
       initialPassword = "int";
       isNormalUser = true;
-      extraGroups = ["wheel"];
+      extraGroups = ["wheel" "sysconfmaster" ];
     };
   };
 
