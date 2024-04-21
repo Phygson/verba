@@ -73,6 +73,7 @@
           "$mod, B, exec, firefox"
           "$mod, RETURN, exec, kitty"
           "$mod, W, killactive"
+          "$mod, L, exec, gtklock"
           "SUPERALT, Q, exit"
         ];
       bindm = 

@@ -97,8 +97,10 @@
     };
   };
 
+  security.pam.services.gtklock = {};
   environment.systemPackages = with pkgs; [
     neovim
+    gtklock
   ];
 
 
