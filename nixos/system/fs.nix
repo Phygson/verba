@@ -1,11 +1,6 @@
+{ lib, config, pkgs, ... }: 
+
 {
-  inputs,
-  outputs,
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
   boot.supportedFilesystems = [ "ntfs" ];
   fileSystems = {
     "/".options = [ "compress=zstd" "noatime" ];
