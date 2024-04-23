@@ -51,6 +51,9 @@
                                gtklock-powerbar-module
                                gtklock-playerctl-module
                                gtklock-userinfo-module
+                               swaynotificationcenter
+                               hicolor-icon-theme
+                               kotatogram-desktop-with-webkit
                              ];
 
   programs.nixvim = {
@@ -64,6 +67,8 @@
   gtk.enable = true;
   gtk.theme.package = pkgs.orchis-theme;
   gtk.theme.name = "Orchis";
+  gtk.iconTheme.package = pkgs.moka-icon-theme;
+  gtk.iconTheme.name = "Moka";
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -77,6 +82,9 @@
     '';
     settings = {
       "$mod" = "SUPER";
+      exec-once = [
+        "swaync"
+      ];
       bind = 
         [
           "$mod, B, exec, firefox"
