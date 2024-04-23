@@ -53,7 +53,7 @@
                                gtklock-userinfo-module
                                swaynotificationcenter
                                hicolor-icon-theme
-                               kotatogram-desktop-with-webkit
+                               unstable._64gram
                              ];
 
   programs.nixvim = {
