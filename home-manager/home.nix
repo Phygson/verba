@@ -54,6 +54,7 @@
                                swaynotificationcenter
                                hicolor-icon-theme
                                unstable._64gram
+                               qbittorrent
                              ];
 
   programs.nixvim = {
