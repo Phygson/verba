@@ -55,6 +55,7 @@
                                hicolor-icon-theme
                                unstable._64gram
                                qbittorrent
+                               ruffle
                              ];
 
   programs.nixvim = {
