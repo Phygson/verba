@@ -75,6 +75,11 @@
   gtk.iconTheme.package = pkgs.moka-icon-theme;
   gtk.iconTheme.name = "Moka";
 
+  services.mpd = {
+    enable = true;
+    musicDirectory = /data/Music;
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     # enableNvidiaPatches = true;
