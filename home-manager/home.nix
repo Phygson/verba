@@ -56,6 +56,7 @@
                                unstable._64gram
                                qbittorrent
                                ruffle
+                               libreoffice-fresh
                              ];
 
   programs.nixvim = {
