@@ -57,6 +57,8 @@
                                qbittorrent
                                ruffle
                                libreoffice-fresh
+                               libqalculate
+                               mpv
                              ];
 
   programs.nixvim = {
