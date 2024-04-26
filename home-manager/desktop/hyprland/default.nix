@@ -10,6 +10,10 @@
       env = GBM_BACKEND,nvidia-drm
       env = __GLX_VENDOR_LIBRARY_NAME,nvidia
       env = WLR_NO_HARDWARE_CURSORS,1
+
+      windowrule = float, ^(waypaper)$
+      windowrule = center, ^(waypaper)$
+      windowrule = size 69% 69%, ^(waypaper)$
     '';
     
     settings = {
