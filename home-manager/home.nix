@@ -61,6 +61,9 @@
                                hunspellDicts.ru-ru
                                libqalculate
                                mpv
+                               swaybg
+                               swww
+                               waypaper
                              ];
 
   programs.nixvim = {
