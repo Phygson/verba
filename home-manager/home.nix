@@ -48,6 +48,12 @@
     username = "phygson";
     homeDirectory = "/home/phygson";
   };
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
+
+
   home.packages = with pkgs; [ vscodium-fhs
                                gtklock
                                gtklock-powerbar-module
