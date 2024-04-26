@@ -15,6 +15,7 @@
       "$mod" = "SUPER";
       exec-once = [
         "swaync"
+        "waypaper --restore"
       ];
       bind = 
         [
