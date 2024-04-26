@@ -65,6 +65,7 @@
                                swaybg
                                swww
                                waypaper
+                               obsidian
                              ];
 
   xdg.desktopEntries = {
