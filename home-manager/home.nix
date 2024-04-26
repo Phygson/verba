@@ -9,7 +9,8 @@
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
     outputs.homeManagerModules.rebuild
-    ./desktop/hyprland/hyprland.nix
+    ./desktop/hyprland
+    ./desktop/music
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
@@ -79,11 +80,6 @@
   gtk.theme.name = "Orchis";
   gtk.iconTheme.package = pkgs.moka-icon-theme;
   gtk.iconTheme.name = "Moka";
-
-  services.mpd = {
-    enable = true;
-    musicDirectory = /data/Music;
-  };
 
   programs.home-manager.enable = true;
   programs.git.enable = true;
