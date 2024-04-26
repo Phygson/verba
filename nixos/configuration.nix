@@ -100,6 +100,8 @@
   environment.systemPackages = with pkgs; [
     neovim
     pavucontrol
+    unar
+    p7zip
   ];
 
 
