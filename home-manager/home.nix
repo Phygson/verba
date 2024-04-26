@@ -67,6 +67,14 @@
                                waypaper
                              ];
 
+  xdg.desktopEntries = {
+    waypaper = {
+      name = "waypaper";
+      exec = "waypaper";
+      terminal = false;
+    };
+  };
+
   programs.nixvim = {
     enable = true;
     colorschemes.gruvbox.enable = true;
