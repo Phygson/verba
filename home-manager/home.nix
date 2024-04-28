@@ -11,6 +11,7 @@
     outputs.homeManagerModules.rebuild
     ./desktop/hyprland
     ./desktop/music
+    ./desktop/gaming
 
     # Or modules exported from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModules.default
