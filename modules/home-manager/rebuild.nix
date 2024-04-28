@@ -1,6 +1,10 @@
-{ lib, pkgs, config, ... }:
-with lib;
-let
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
   cfg = config.z.rebuild;
   impl = pkgs.writeShellScriptBin "rebuild" ''
     #!/bin/bash
@@ -24,6 +28,6 @@ in {
   };
 
   config = mkIf cfg.enable {
-    home.packages = [ impl ];
+    home.packages = [impl];
   };
 }

@@ -1,6 +1,9 @@
-{ lib, config, pkgs, ... }: 
-
 {
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./binds.nix
     ./settings.nix
@@ -19,7 +22,7 @@
       windowrule = center, ^(waypaper)$
       windowrule = size 69% 69%, ^(waypaper)$
     '';
-    
+
     settings = {
       exec-once = [
         "swaync"

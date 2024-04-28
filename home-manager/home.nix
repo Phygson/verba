@@ -54,26 +54,26 @@
     "electron-25.9.0"
   ];
 
-
-  home.packages = with pkgs; [ vscodium-fhs
-                               gtklock
-                               gtklock-powerbar-module
-                               gtklock-playerctl-module
-                               gtklock-userinfo-module
-                               swaynotificationcenter
-                               hicolor-icon-theme
-                               unstable._64gram
-                               qbittorrent
-                               ruffle
-                               libreoffice-fresh
-                               hunspellDicts.ru-ru
-                               libqalculate
-                               mpv
-                               swaybg
-                               swww
-                               waypaper
-                               obsidian
-                             ];
+  home.packages = with pkgs; [
+    vscodium-fhs
+    gtklock
+    gtklock-powerbar-module
+    gtklock-playerctl-module
+    gtklock-userinfo-module
+    swaynotificationcenter
+    hicolor-icon-theme
+    unstable._64gram
+    qbittorrent
+    ruffle
+    libreoffice-fresh
+    hunspellDicts.ru-ru
+    libqalculate
+    mpv
+    swaybg
+    swww
+    waypaper
+    obsidian
+  ];
 
   xdg.desktopEntries = {
     waypaper = {
@@ -110,7 +110,7 @@
   programs.fish = {
     enable = true;
     shellAliases.cdnix = "cd /etc/nixos/nix-flake";
-    plugins = with pkgs.fishPlugins; [ 
+    plugins = with pkgs.fishPlugins; [
       {
         name = "pure";
         src = pure.src;

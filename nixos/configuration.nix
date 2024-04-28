@@ -92,7 +92,7 @@
     phygson = {
       initialPassword = "int";
       isNormalUser = true;
-      extraGroups = ["wheel" "sysconfmaster" ];
+      extraGroups = ["wheel" "sysconfmaster"];
     };
   };
 
@@ -102,8 +102,8 @@
     pavucontrol
     unar
     p7zip
+    alejandra
   ];
-
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.11";
