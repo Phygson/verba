@@ -48,6 +48,9 @@
   home = {
     username = "phygson";
     homeDirectory = "/home/phygson";
+    sessionVariables = {
+      NIXOS_OZONE_WL = "1";
+    };
   };
 
   nixpkgs.config.permittedInsecurePackages = [
@@ -55,7 +58,6 @@
   ];
 
   home.packages = with pkgs; [
-    vscodium-fhs
     gtklock
     gtklock-powerbar-module
     gtklock-playerctl-module
@@ -74,6 +76,14 @@
     waypaper
     obsidian
   ];
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium-fhs;
+    userSettings = {
+      "window.titleBarStyle" = "custom";
+    };
+  };
 
   xdg.desktopEntries = {
     waypaper = {
