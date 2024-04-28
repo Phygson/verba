@@ -77,6 +77,8 @@
     useXkbConfig = true; # use xkb.options in tty.
   };
 
+  programs.steam.enable = true;
+
   programs.hyprland.enable = true;
 
   services.xserver.enable = true;
