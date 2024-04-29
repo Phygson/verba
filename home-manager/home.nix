@@ -118,8 +118,8 @@
 
   gtk.enable = true;
   gtk.theme = {
-        name = "Adwaita-dark";
-        package = pkgs.gnome.gnome-themes-extra;
+    name = "Adwaita-dark";
+    package = pkgs.gnome.gnome-themes-extra;
   };
   gtk.iconTheme.package = pkgs.moka-icon-theme;
   gtk.iconTheme.name = "Moka";

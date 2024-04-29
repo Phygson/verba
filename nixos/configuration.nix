@@ -105,6 +105,8 @@
     p7zip
     alejandra
     inputs.nh.packages.x86_64-linux.default
+    killall
+    btop
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
