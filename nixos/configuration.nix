@@ -72,6 +72,15 @@
   time.timeZone = "Europe/Moscow";
 
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.extraLocaleSettings = {
+    # LC_TIME = "ru_RU.UTF-8";
+    LC_NUMERIC = "ru_RU.UTF-8";
+    LC_TIME = "ru_RU.UTF-8";
+    LC_PAPER = "ru_RU.UTF-8";
+    LC_NAME = "ru_RU.UTF-8";
+    LC_MEASUREMENT = "ru_RU.UTF-8";
+    LC_MONETARY = "ru_RU.UTF-8";
+  };
   console = {
     font = "Lat2-Terminus16";
     useXkbConfig = true; # use xkb.options in tty.
@@ -87,6 +96,13 @@
   services.xserver.displayManager.startx.enable = true;
   services.xserver.xkb.layout = "us,ru";
   services.xserver.xkb.options = "grp:alt_shift_toggle";
+
+  xdg = {
+    portal = {
+      enable = true;
+      wlr.enable = true;
+    };
+  };
 
   programs.thunar.enable = true;
 
