@@ -15,6 +15,10 @@
     # nix-index-database
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+
+    # nh
+    nh.url = "github:viperML/nh";
+    # nh.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
@@ -59,7 +63,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           # > Our main nixos configuration file <
-          ./nixos/configuration.nix
+          ./nixos/configuration.nix 
         ];
       };
     };

@@ -75,6 +75,7 @@
     swww
     waypaper
     obsidian
+    any-nix-shell
   ];
 
   programs.vscode = {
@@ -120,6 +121,9 @@
   programs.fish = {
     enable = true;
     shellAliases.cdnix = "cd /etc/nixos/nix-flake";
+    promptInit = ''
+    ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+    '';
     plugins = with pkgs.fishPlugins; [
       {
         name = "pure";

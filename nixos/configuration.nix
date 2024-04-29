@@ -64,7 +64,6 @@
 
   nix.settings = {
     experimental-features = "nix-command flakes";
-    auto-optimise-store = true;
   };
 
   networking.hostName = "grob";
@@ -79,6 +78,10 @@
   };
 
   programs.hyprland.enable = true;
+
+  environment.sessionVariables = {
+    FLAKE = "/etc/nixos/nix-flake/";
+  };
 
   services.xserver.enable = true;
   services.xserver.displayManager.startx.enable = true;
@@ -101,6 +104,7 @@
     unar
     p7zip
     alejandra
+    inputs.nh.packages.x86_64-linux.default
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
