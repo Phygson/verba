@@ -10,6 +10,13 @@ window#waybar {
     background: transparent;
 }
 
+window#waybar.empty #window {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    background-color: transparent;
+  }
+
 tooltip {
     background: rgba(43, 48, 59, 1);
     border: 1px solid rgba(100, 114, 125, 0.5);
