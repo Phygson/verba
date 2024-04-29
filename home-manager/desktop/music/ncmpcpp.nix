@@ -15,4 +15,5 @@
       fetch_lyrics_for_current_song_in_background = "yes";
     };
   };
+  home.shellAliases.ncmp = "ncmpcpp";
 }
