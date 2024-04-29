@@ -17,7 +17,7 @@
 
       modules-left = ["hyprland/workspaces"];
       modules-center = ["hyprland/window"];
-      modules-right = ["hyprland/language" "wireplumber" "cpu" "memory" "clock" "custom/notification"];
+      modules-right = ["hyprland/language" "mpd" "wireplumber" "cpu" "memory" "clock" "custom/notification"];
 
       clock = {
         interval = 60;
@@ -41,6 +41,31 @@
         format-muted = "";
         on-click = "pavucontrol";
         format-icons = ["" "" ""];
+      };
+      mpd = {
+        format = "{title}";
+        format-disconnected = "Disconnected ";
+        format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
+        interval = 10;
+        consume-icons = {
+            on = " ";
+        };
+        random-icons = {
+          off = "<span color=\"#f53c3c\"></span> ";
+          on = " ";
+        };
+        repeat-icons = {
+          on = " ";
+        };
+        single-icons = {
+          on = "1 ";
+        };
+        state-icons = {
+          paused = "";
+          playing = "";
+        };
+        tooltip-format = "MPD (connected)";
+        tooltip-format-disconnected = "MPD (disconnected)";
       };
 
       "hyprland/workspaces" = {

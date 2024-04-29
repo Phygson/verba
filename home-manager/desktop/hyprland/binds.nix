@@ -15,6 +15,9 @@
           "$mod, L, exec, gtklock -m ${pkgs.gtklock-powerbar-module.out}/lib/gtklock/powerbar-module.so -m ${pkgs.gtklock-playerctl-module.out}/lib/gtklock/playerctl-module.so -m ${pkgs.gtklock-userinfo-module.out}/lib/gtklock/userinfo-module.so"
           "SUPERALT, Q, exit"
           "$mod, D, exec, wofi -S drun"
+          ", XF86AudioPlay, exec, mpc toggle"
+          ", XF86AudioNext, exec, mpc next"
+          ", XF86AudioPrev, exec, mpc prev"
         ]
         ++ (
           # workspaces
