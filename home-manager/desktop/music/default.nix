@@ -12,7 +12,7 @@
       restore_paused "yes"
     '';
   };
-  home.packages = with pkgs; [mpc-cli];
+  home.packages = with pkgs; [mpc-cli picard];
 
   imports = [
     ./ncmpcpp.nix
