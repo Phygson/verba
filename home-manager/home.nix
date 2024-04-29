@@ -76,6 +76,7 @@
     waypaper
     obsidian
     any-nix-shell
+    nerdfonts
   ];
 
   programs.vscode = {
@@ -99,6 +100,7 @@
     colorschemes.gruvbox.enable = true;
     plugins = {
       nix.enable = true;
+      chadtree.enable = true;
     };
   };
 
@@ -107,6 +109,8 @@
   gtk.theme.name = "Orchis";
   gtk.iconTheme.package = pkgs.moka-icon-theme;
   gtk.iconTheme.name = "Moka";
+
+  fonts.fontconfig.enable = true;
 
   programs.home-manager.enable = true;
   programs.git.enable = true;
@@ -121,7 +125,7 @@
   programs.fish = {
     enable = true;
     shellAliases.cdnix = "cd /etc/nixos/nix-flake";
-    promptInit = ''
+    interactiveShellInit = ''
     ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
     '';
     plugins = with pkgs.fishPlugins; [
@@ -146,6 +150,7 @@
     enable = true;
     shellIntegration.enableFishIntegration = true;
     settings.shell = "fish";
+    settings.font_family = "FiraCode Nerd Font Mono";
     theme = "Gruvbox Dark";
   };
 
