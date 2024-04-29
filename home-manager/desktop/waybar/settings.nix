@@ -68,9 +68,9 @@
       "hyprland/window" = {
         format = "{}";
         rewrite = {
-          "(.*) — Mozilla Firefox" = "󰈹  $1 󰈹 ";
+          "(.*) — Mozilla Firefox" = "󰈹 $1";
           "(.*) - fish" = "󰈺 [$1]";
-          "(.*) - VSCodium" = "  $1  ";
+          "(.*) - VSCodium" = " $1";
         };
         separate-outputs = true;
       };
