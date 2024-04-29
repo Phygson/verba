@@ -88,6 +88,8 @@
   services.xserver.xkb.layout = "us,ru";
   services.xserver.xkb.options = "grp:alt_shift_toggle";
 
+  programs.thunar.enable = true;
+
   users.groups.sysconfmaster = {};
   users.users = {
     phygson = {
