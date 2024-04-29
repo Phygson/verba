@@ -20,7 +20,7 @@
              }
 
              menuentry "Shut Down" {
-        halt
+               halt
              }'';
     };
   };
