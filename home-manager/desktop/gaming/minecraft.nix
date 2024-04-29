@@ -13,5 +13,5 @@
     jdk17
   ];
 in {
-  home.packages = with pkgs; [(prismlauncher.override {jdks = jdks_;})];
+  home.packages = with pkgs; [(prismlauncher.override {jdks = jdks_; withWaylandGLFW = true;})];
 }
