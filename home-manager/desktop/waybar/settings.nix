@@ -43,9 +43,9 @@
         format-icons = ["" "" ""];
       };
       mpd = {
-        format = "{title}";
+        format = "{stateIcon} {title}";
         format-disconnected = "Disconnected ";
-        format-stopped = "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ";
+        format-stopped = "Stopped ";
         interval = 10;
         consume-icons = {
             on = " ";
@@ -66,6 +66,8 @@
         };
         tooltip-format = "MPD (connected)";
         tooltip-format-disconnected = "MPD (disconnected)";
+        max-length = 40;
+        on-click = "mpc toggle";
       };
 
       "hyprland/workspaces" = {
@@ -98,6 +100,7 @@
           "(.*) - VSCodium" = " $1";
         };
         separate-outputs = true;
+        max-length = 45;
       };
 
       "custom/notification" = {
