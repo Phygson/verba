@@ -104,6 +104,11 @@
     };
   };
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   gtk.enable = true;
   gtk.theme.package = pkgs.orchis-theme;
   gtk.theme.name = "Orchis";
