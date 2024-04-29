@@ -120,7 +120,9 @@
     },
     "nh": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
         "lastModified": 1714165257,
@@ -158,15 +160,15 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1711668574,
-        "narHash": "sha256-u1dfs0ASQIEr1icTVrsKwg2xToIpn7ZXxW3RHfHxshg=",
-        "owner": "NixOS",
+        "lastModified": 1714272655,
+        "narHash": "sha256-3/ghIWCve93ngkx5eNPdHIKJP/pMzSr5Wc4rNKE1wOc=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "219951b495fc2eac67b1456824cc1ec1fd2ee659",
+        "rev": "12430e43bd9b81a6b4e79e64f87c624ade701eaf",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "nixos",
         "ref": "nixos-23.11",
         "repo": "nixpkgs",
         "type": "github"
@@ -174,11 +176,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1714400746,
-        "narHash": "sha256-I0c4L3RcnHmi6U2n5YE33v5Bti4aVAQA4cnHSXfuo6M=",
+        "lastModified": 1714415833,
+        "narHash": "sha256-arHLSJeKQC6yBhXIUkB48OlMOr5S/Pl8+i5wvSVtZ1g=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "cdb96a0f92d7aa3875414ad0032fdec02c4cf404",
+        "rev": "ccd42e3c21c65c52d0ee3a555c80e526a54f2806",
         "type": "github"
       },
       "original": {
@@ -216,22 +218,6 @@
       "original": {
         "owner": "nixos",
         "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1714272655,
-        "narHash": "sha256-3/ghIWCve93ngkx5eNPdHIKJP/pMzSr5Wc4rNKE1wOc=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "12430e43bd9b81a6b4e79e64f87c624ade701eaf",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-23.11",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -317,7 +303,7 @@
         "home-manager": "home-manager",
         "nh": "nh",
         "nix-index-database": "nix-index-database",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nixvim": "nixvim"
