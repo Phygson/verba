@@ -21,6 +21,7 @@
     ./system/fs.nix
     ./system/nvidia.nix
     ./system/sound.nix
+    ./system/boot.nix
   ];
 
   nixpkgs = {
@@ -83,9 +84,6 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.xkb.layout = "us,ru";
   services.xserver.xkb.options = "grp:alt_shift_toggle";
-
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
 
   users.groups.sysconfmaster = {};
   users.users = {
