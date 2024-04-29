@@ -93,6 +93,11 @@
       exec = "waypaper";
       terminal = false;
     };
+    obsidian = {
+      name = "Obsidian";
+      exec = "obsidian --ozone-platform=wayland --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations --socket=wayland --disable-gpu";
+      terminal = false;
+    };
   };
 
   programs.nixvim = {
