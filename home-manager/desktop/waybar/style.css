@@ -7,24 +7,36 @@
 }
 
 window#waybar {
-    background: rgba(43, 48, 59, 0.5);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    color: white;
+    background: transparent;
 }
 
 tooltip {
-  background: rgba(43, 48, 59, 0.5);
-  border: 1px solid rgba(100, 114, 125, 0.5);
+    background: rgba(43, 48, 59, 1);
+    border: 1px solid rgba(100, 114, 125, 0.5);
 }
 tooltip label {
-  color: white;
+    color: white;
+}
+
+#window {
+    background: rgba(43, 48, 59, 1);
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#workspaces {
+    background: rgba(43, 48, 59, 1);
+    border-radius: 10px;
+    padding-right: 2px;
+    margin-left: 5px;
 }
 
 #workspaces button {
+    background: rgba(43, 48, 59, 1);
     padding: 0 5px;
     background: transparent;
     color: white;
-    border-bottom: 3px solid transparent;
     font-size: 18px;
 }
 
@@ -34,24 +46,25 @@ tooltip label {
     font-size: 18px;
 }
 
-#mode, #clock, #battery {
+#language, #clock, #custom-notification, #cpu, #memory {
+    background: rgba(43, 48, 59, 1);
     padding: 0 10px;
 }
 
-#mode {
-    background: #64727D;
-    border-bottom: 3px solid white;
+#language, #clock, #cpu, #memory {
+    border-right: 2px dotted #64727D;
 }
 
+
 #clock {
-    background-color: #64727D;
+    padding-right: 8px;
 }
 
 #language {
-    border-radius: 20px;
+    border-radius: 10px 0 0 10px;
     padding-left: 10px;
-    padding-right: 10px;
-    font-size: 18px;
+    padding-right: 8px;
+    font-size: 20px;
 }
 
 @keyframes blink {
@@ -62,5 +75,7 @@ tooltip label {
 }
 
 #custom-notification {
-    padding-right: 10px;
+    padding-right: 15px;
+    border-radius: 0 10px 10px 0;
+    margin-right: 5px;
 }

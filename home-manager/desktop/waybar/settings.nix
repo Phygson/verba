@@ -13,10 +13,28 @@
         "eDP-1"
         "HDMI-A-1"
       ];
+      margin-top = 5;
 
       modules-left = ["hyprland/workspaces"];
       modules-center = ["hyprland/window"];
-      modules-right = ["hyprland/language" "custom/notification"];
+      modules-right = ["hyprland/language" "cpu" "memory" "clock" "custom/notification"];
+
+      clock = {
+        interval = 60;
+        format = "{:%H:%M}";
+        max-length = 25;
+        format-alt = "{:%d.%m.%y}";
+      };
+
+      cpu = {
+        format = "{usage}% ";
+        tooltip = false;
+      };
+
+      memory = {
+        interval = 30;
+        format = "{used:0.1f}/{total:0.1f}G ";
+      };
 
       "hyprland/workspaces" = {
         format = "{icon}";
@@ -66,7 +84,7 @@
         return-type = "json";
         exec-if = "which swaync-client";
         exec = "swaync-client -swb";
-        on-click = "swaync-client -t -sw";
+        on-click = "sleep 0.2s && swaync-client -t -sw";
         on-click-right = "swaync-client -d -sw";
         escape = true;
       };

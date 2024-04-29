@@ -117,8 +117,10 @@
   };
 
   gtk.enable = true;
-  gtk.theme.package = pkgs.orchis-theme;
-  gtk.theme.name = "Orchis";
+  gtk.theme = {
+        name = "Adwaita-dark";
+        package = pkgs.gnome.gnome-themes-extra;
+  };
   gtk.iconTheme.package = pkgs.moka-icon-theme;
   gtk.iconTheme.name = "Moka";
 
