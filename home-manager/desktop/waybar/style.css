@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: FiraCode Nerd Font, Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     min-height: 0;
 }
 
@@ -23,6 +23,7 @@ tooltip label {
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
+    font-size: 16px;
 }
 
 #workspaces {
@@ -30,6 +31,7 @@ tooltip label {
     border-radius: 10px;
     padding-right: 2px;
     margin-left: 5px;
+    font-size: 20px;
 }
 
 #workspaces button {
@@ -37,21 +39,21 @@ tooltip label {
     padding: 0 5px;
     background: transparent;
     color: white;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 #workspaces button.focused {
     background: #64727D;
     border-bottom: 3px solid white;
-    font-size: 18px;
+    font-size: 20px;
 }
 
-#language, #clock, #custom-notification, #cpu, #memory {
+#language, #clock, #custom-notification, #cpu, #memory, #wireplumber {
     background: rgba(43, 48, 59, 1);
     padding: 0 10px;
 }
 
-#language, #clock, #cpu, #memory {
+#language, #clock, #cpu, #memory, #wireplumber {
     border-right: 2px dotted #64727D;
 }
 

@@ -17,7 +17,7 @@
 
       modules-left = ["hyprland/workspaces"];
       modules-center = ["hyprland/window"];
-      modules-right = ["hyprland/language" "cpu" "memory" "clock" "custom/notification"];
+      modules-right = ["hyprland/language" "wireplumber" "cpu" "memory" "clock" "custom/notification"];
 
       clock = {
         interval = 60;
@@ -33,7 +33,14 @@
 
       memory = {
         interval = 30;
-        format = "{used:0.1f}/{total:0.1f}G ";
+        format = "{}% ";
+      };
+
+      wireplumber = {
+        format = "{volume}% {icon}";
+        format-muted = "";
+        on-click = "pavucontrol";
+        format-icons = ["" "" ""];
       };
 
       "hyprland/workspaces" = {
