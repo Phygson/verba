@@ -14,7 +14,7 @@
       device = "nodev";
       useOSProber = true;
       copyKernels = true;
-      extraEntries = ''             
+      extraEntries = ''           
         menuentry "Reboot" {
           reboot
         }
