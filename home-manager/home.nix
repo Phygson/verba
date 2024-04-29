@@ -78,6 +78,7 @@
     obsidian
     any-nix-shell
     nerdfonts
+    vesktop
   ];
 
   programs.vscode = {

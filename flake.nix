@@ -19,7 +19,7 @@
 
     # nh
     nh.url = "github:viperML/nh";
-    # nh.inputs.nixpkgs.follows = "nixpkgs";
+    nh.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = {
