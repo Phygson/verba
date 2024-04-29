@@ -87,6 +87,39 @@
     };
   };
 
+  programs.waybar.enable = true;
+  programs.waybar.settings = {
+    mainBar = {
+      layer = "top";
+      position = "top";
+      height = 30;
+      output = [
+        "eDP-1"
+        "HDMI-A-1"
+      ];
+
+      modules-left = ["hyprland/workspaces"];
+      modules-center = ["hyprland/window"];
+      modules-right = ["hyprland/language"];
+
+      "hyprland/workspaces" = {
+        format = "{icon}";
+	format-icons = {
+		"1" = "";
+		"2" = "";
+		"3" = "";
+		"4" = "";
+		"5" = "";
+		active = "";
+		default = "";
+	};
+        persistent-workspaces = {
+          "*" = 9;
+        };
+      };
+    };
+  };
+
   xdg.desktopEntries = {
     waypaper = {
       name = "waypaper";
@@ -136,7 +169,7 @@
     enable = true;
     shellAliases.cdnix = "cd /etc/nixos/nix-flake";
     interactiveShellInit = ''
-    ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
+      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
     '';
     plugins = with pkgs.fishPlugins; [
       {

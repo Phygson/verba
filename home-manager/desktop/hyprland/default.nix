@@ -27,6 +27,7 @@
       exec-once = [
         "swaync"
         "waypaper --restore"
+        "waybar"
       ];
     };
   };

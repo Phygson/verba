@@ -14,14 +14,14 @@
       device = "nodev";
       useOSProber = true;
       copyKernels = true;
-      extraEntries = ''       
-             menuentry "Reboot" {
-               reboot
-             }
+      extraEntries = ''             
+        menuentry "Reboot" {
+          reboot
+        }
 
-             menuentry "Shut Down" {
-               halt
-             }'';
+        menuentry "Shut Down" {
+          halt
+        }'';
     };
   };
 }
