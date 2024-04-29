@@ -22,10 +22,9 @@
         format = "{icon}";
         format-icons = {
           "1" = "";
-          "2" = "";
+          "2" = "󰈹";
           "3" = "";
-          "4" = "";
-          "5" = "";
+          "4" = "";
           active = "";
           default = "";
         };
@@ -35,11 +34,20 @@
       };
 
       "hyprland/language" = {
-        format = "test {}";
-        format-us = "EN";
-        format-ru = "RU";
-        keyboard-name = "gaming-keyboard";
+        format = "{}";
+        format-en = "🇺🇸";
+        format-ru = "🇷🇺";
         on-click = "hyprctl switchxkblayout gaming-keyboard next";
+      };
+
+      "hyprland/window" = {
+        format = "{}";
+        rewrite = {
+          "(.*) — Mozilla Firefox" = "󰈹  $1 󰈹 ";
+          "(.*) - fish" = "󰈺  [$1]";
+          "(.*) - VSCodium" = "  $1  ";
+        };
+        separate-outputs = true;
       };
     };
   };

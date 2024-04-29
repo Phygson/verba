@@ -85,6 +85,7 @@
     package = pkgs.vscodium-fhs;
     userSettings = {
       "window.titleBarStyle" = "custom";
+      "editor.fontFamily" = "'FiraCode Nerd Font', 'monospace', monospace";
     };
   };
 
