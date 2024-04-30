@@ -97,6 +97,8 @@
   services.xserver.xkb.layout = "us,ru";
   services.xserver.xkb.options = "grp:alt_shift_toggle";
 
+  security.polkit.enable = true;
+
   xdg = {
     portal = {
       enable = true;
@@ -116,6 +118,22 @@
     };
   };
 
+  systemd = {
+  user.services.polkit-gnome-authentication-agent-1 = {
+    description = "polkit-gnome-authentication-agent-1";
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+    };
+  };
+
   security.pam.services.gtklock = {};
   environment.systemPackages = with pkgs; [
     neovim
@@ -126,6 +144,8 @@
     inputs.nh.packages.x86_64-linux.default
     killall
     btop
+    btrfs-assistant
+    polkit_gnome
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
