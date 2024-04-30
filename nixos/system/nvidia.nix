@@ -16,6 +16,6 @@
     nvidiaSettings = true;
     open = false;
     forceFullCompositionPipeline = false;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 }
