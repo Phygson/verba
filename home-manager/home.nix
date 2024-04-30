@@ -75,6 +75,7 @@
     nerdfonts
     vesktop
     whatsapp-for-linux
+    grimblast
   ];
 
   z.gtklock = {
