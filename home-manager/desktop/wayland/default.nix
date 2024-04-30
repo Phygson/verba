@@ -3,5 +3,6 @@
     ./hyprland
     ./waybar
     ./gtklock.nix
+    ./screenshot.nix
   ];
 }
