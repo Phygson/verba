@@ -87,6 +87,8 @@
   };
 
   programs.hyprland.enable = true;
+  programs.hyprland.package = pkgs.unstable.hyprland;
+  programs.hyprland.portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
 
   environment.sessionVariables = {
     FLAKE = "/etc/nixos/nix-flake/";

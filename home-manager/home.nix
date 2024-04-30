@@ -59,10 +59,7 @@
   ];
 
   home.packages = with pkgs; [
-    gtklock
-    gtklock-powerbar-module
-    gtklock-playerctl-module
-    gtklock-userinfo-module
+    master.gtklock
     swaynotificationcenter
     hicolor-icon-theme
     unstable._64gram

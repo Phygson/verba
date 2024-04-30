@@ -9,6 +9,7 @@
     ./settings.nix
   ];
   wayland.windowManager.hyprland = {
+    package = pkgs.unstable.hyprland;
     enable = true;
     # enableNvidiaPatches = true;
     extraConfig = ''

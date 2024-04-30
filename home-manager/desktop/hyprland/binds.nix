@@ -7,12 +7,12 @@
   wayland.windowManager.hyprland = {
     settings = {
       "$mod" = "SUPER";
-      bind =
+      bind = with pkgs.master;
         [
           "$mod, B, exec, firefox"
           "$mod, RETURN, exec, kitty"
           "$mod, W, killactive"
-          "$mod, L, exec, gtklock -m ${pkgs.gtklock-powerbar-module.out}/lib/gtklock/powerbar-module.so -m ${pkgs.gtklock-playerctl-module.out}/lib/gtklock/playerctl-module.so -m ${pkgs.gtklock-userinfo-module.out}/lib/gtklock/userinfo-module.so"
+          "$mod, L, exec, gtklock -m ${gtklock-powerbar-module.out}/lib/gtklock/powerbar-module.so -m ${gtklock-playerctl-module.out}/lib/gtklock/playerctl-module.so"
           "SUPERALT, Q, exit"
           "$mod, D, exec, wofi -S drun"
           ", XF86AudioPlay, exec, mpc toggle"
