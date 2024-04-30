@@ -1,0 +1,7 @@
+{
+  imports = [
+    ./wayland
+    ./music
+    ./gaming
+  ];
+}

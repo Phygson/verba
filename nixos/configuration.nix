@@ -10,18 +10,10 @@
 }: {
   # You can import other NixOS modules here
   imports = [
-    # If you want to use modules your own flake exports (from modules/nixos):
-    outputs.nixosModules.util
-
-    # Or modules from other flakes (such as nixos-hardware):
-    # inputs.hardware.nixosModules.common-cpu-amd
-    # inputs.hardware.nixosModules.common-ssd
     ./hardware-configuration.nix
 
-    ./system/fs.nix
-    ./system/nvidia.nix
-    ./system/sound.nix
-    ./system/boot.nix
+    ./system
+    ./misc
   ];
 
   nixpkgs = {

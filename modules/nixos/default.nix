@@ -1,3 +1,0 @@
-{
-  util = import ./util.nix;
-}
