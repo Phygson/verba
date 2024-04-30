@@ -105,6 +105,7 @@
   };
 
   programs.thunar.enable = true;
+  programs.thunar.plugins = with pkgs.xfce; [thunar-volman thunar-archive-plugin];
 
   users.groups.sysconfmaster = {};
   users.users = {
