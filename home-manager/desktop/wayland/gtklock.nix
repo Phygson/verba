@@ -35,27 +35,16 @@ in {
     ];
 
     wayland.windowManager.hyprland.settings.bind = with cfg.pkgsInstance;
-      mkIf cfg.hyprland.enable [
-        (cfg.hyprland.mod
+    with cfg.hyprland;
+      mkIf enable [
+        (mod
           + ", "
-          + cfg.hyprland.key
+          + key
           + ", exec, gtklock "
           + builtins.concatStringsSep "" [
-            (
-              if cfg.hyprland.enablePowerbarModule
-              then " -m ${gtklock-powerbar-module.out}/lib/gtklock/powerbar-module.so"
-              else ""
-            )
-            (
-              if cfg.hyprland.enablePlayectlModule
-              then " -m ${gtklock-playerctl-module.out}/lib/gtklock/playerctl-module.so"
-              else ""
-            )
-            (
-              if cfg.hyprland.enableUserinfoModule
-              then " -m ${gtklock-userinfo-module.out}/lib/gtklock/userinfo-module.so"
-              else ""
-            )
+            (optionalString enablePowerbarModule " -m ${gtklock-powerbar-module.out}/lib/gtklock/powerbar-module.so")
+            (optionalString enablePlayectlModule " -m ${gtklock-playerctl-module.out}/lib/gtklock/playerctl-module.so")
+            (optionalString enableUserinfoModule " -m ${gtklock-userinfo-module.out}/lib/gtklock/userinfo-module.so")
           ])
       ];
   };
