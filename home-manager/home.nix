@@ -79,6 +79,7 @@
     any-nix-shell
     nerdfonts
     vesktop
+    whatsapp-for-linux
   ];
 
   programs.vscode = {
