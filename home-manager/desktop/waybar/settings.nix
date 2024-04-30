@@ -61,8 +61,8 @@
           on = "1 ";
         };
         state-icons = {
-          paused = "";
-          playing = "";
+          playing = "";
+          paused = "";
         };
         tooltip-format = "MPD (connected)";
         tooltip-format-disconnected = "MPD (disconnected)";
@@ -77,7 +77,10 @@
           "2" = "󰈹";
           "3" = "";
           "4" = "";
-          active = "";
+          "5" = "";
+          "6" = "󰓓";
+          "7" = "󱞁";
+          # active = "";
           default = "";
         };
         persistent-workspaces = {
