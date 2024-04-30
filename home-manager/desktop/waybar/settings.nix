@@ -48,7 +48,7 @@
         format-stopped = "Stopped ";
         interval = 10;
         consume-icons = {
-            on = " ";
+          on = " ";
         };
         random-icons = {
           off = "<span color=\"#f53c3c\"></span> ";
