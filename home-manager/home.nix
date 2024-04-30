@@ -10,9 +10,9 @@
     # If you want to use modules your own flake exports (from modules/home-manager):
     outputs.homeManagerModules.rebuild
     outputs.homeManagerModules.gtklock
+    outputs.homeManagerModules.prismlauncher
     ./desktop/hyprland
     ./desktop/music
-    ./desktop/gaming
     ./desktop/waybar
 
     # Or modules exported from other flakes (such as nix-colors):
@@ -88,6 +88,15 @@
       mod = "SUPER";
       key = "L";
     };
+  };
+
+  z.prismlauncher = {
+    enable = true;
+    javaPackages = with pkgs; [
+      temurin-jre-bin-8
+      temurin-jre-bin-17
+      master.temurin-jre-bin-21
+    ];
   };
 
   programs.vscode = {
