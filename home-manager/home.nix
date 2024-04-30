@@ -141,6 +141,7 @@
 
   programs.home-manager.enable = true;
   programs.git.enable = true;
+  programs.git.extraConfig.core.editor = "nvim";
   programs.gh.enable = true;
   programs.firefox.enable = true;
 
