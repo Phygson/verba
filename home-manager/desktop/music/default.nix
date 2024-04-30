@@ -6,7 +6,7 @@
 }: {
   services.mpd = {
     enable = true;
-    musicDirectory = /data/Music;
+    musicDirectory = config.home.homeDirectory + "/Music";
     extraConfig = ''
       auto_update "yes"
       restore_paused "yes"
