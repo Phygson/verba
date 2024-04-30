@@ -69,7 +69,6 @@
     hunspellDicts.ru-ru
     libqalculate
     mpv
-    swaybg
     swww
     waypaper
     obsidian
