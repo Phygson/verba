@@ -8,7 +8,6 @@
 }: {
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
-    outputs.homeManagerModules.rebuild
     outputs.homeManagerModules.gtklock
     outputs.homeManagerModules.prismlauncher
     ./desktop/hyprland
@@ -192,8 +191,6 @@
   };
 
   programs.wofi.enable = true;
-
-  z.rebuild.enable = true;
 
   systemd.user.startServices = "sd-switch";
 

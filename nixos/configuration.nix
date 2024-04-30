@@ -11,7 +11,7 @@
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules your own flake exports (from modules/nixos):
-    # outputs.nixosModules.example
+    outputs.nixosModules.util
 
     # Or modules from other flakes (such as nixos-hardware):
     # inputs.hardware.nixosModules.common-cpu-amd
@@ -136,6 +136,13 @@
     };
   };
 
+  z.util = {
+    enable = true;
+    package-nh = inputs.nh.packages.x86_64-linux.default;
+  };
+
+  programs.fish.enable = true;
+
   security.pam.services.gtklock = {};
   environment.systemPackages = with pkgs; [
     neovim
@@ -143,7 +150,6 @@
     unar
     p7zip
     alejandra
-    inputs.nh.packages.x86_64-linux.default
     killall
     btop
     btrfs-assistant
