@@ -9,6 +9,7 @@
   imports = [
     # If you want to use modules your own flake exports (from modules/home-manager):
     outputs.homeManagerModules.rebuild
+    outputs.homeManagerModules.gtklock
     ./desktop/hyprland
     ./desktop/music
     ./desktop/gaming
@@ -59,7 +60,6 @@
   ];
 
   home.packages = with pkgs; [
-    master.gtklock
     swaynotificationcenter
     hicolor-icon-theme
     unstable._64gram
@@ -78,6 +78,17 @@
     vesktop
     whatsapp-for-linux
   ];
+
+  z.gtklock = {
+    enable = true;
+    pkgsInstance = pkgs.master;
+    hyprland = {
+      enable = true;
+      enablePowerbarModule = true;
+      mod = "SUPER";
+      key = "L";
+    };
+  };
 
   programs.vscode = {
     enable = true;

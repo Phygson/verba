@@ -12,7 +12,6 @@
           "$mod, B, exec, firefox"
           "$mod, RETURN, exec, kitty"
           "$mod, W, killactive"
-          "$mod, L, exec, gtklock -m ${gtklock-powerbar-module.out}/lib/gtklock/powerbar-module.so -m ${gtklock-playerctl-module.out}/lib/gtklock/playerctl-module.so"
           "SUPERALT, Q, exit"
           "$mod, D, exec, wofi -S drun"
           ", XF86AudioPlay, exec, mpc toggle"
