@@ -61,6 +61,7 @@
     nerdfonts
     vesktop
     whatsapp-for-linux
+    yandex-disk
   ];
 
   z.screenshot = {
