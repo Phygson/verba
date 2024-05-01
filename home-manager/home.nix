@@ -61,6 +61,7 @@
     nerdfonts
     vesktop
     whatsapp-for-linux
+    nixd
   ];
 
   z.screenshot = {
@@ -94,6 +95,23 @@
     userSettings = {
       "window.titleBarStyle" = "custom";
       "editor.fontFamily" = "'FiraCode Nerd Font', 'monospace', monospace";
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "nixd";
+      "nix.serverSettings" = {
+        "nixd" = {
+          "formatting" = {
+            "command" = ["alejandra"];
+          };
+          "options" = {
+            "nixos" = {
+              "expr" = "(builtins.getFlake \"/etc/nixos/nix-flake\").nixosConfigurations.grob.options";
+            };
+            "home-manager" = {
+              "expr" = "(builtins.getFlake \"/etc/nixos/nix-flake\").homeConfigurations.\"phygson@grob\".options";
+            };
+          };
+        };
+      };
     };
   };
 
