@@ -165,14 +165,17 @@
   programs.gh.enable = true;
   programs.firefox.enable = true;
 
-  programs.bash = {
-    enable = true;
-    shellAliases.cdnix = "cd /etc/nixos/nix-flake";
-  };
+  programs.bash.enable = true;
   programs.fzf.enable = true;
   programs.fish = {
     enable = true;
-    shellAliases.cdnix = "cd /etc/nixos/nix-flake";
+    shellAliases = {
+      gacp = "git add -A && git commit && git push";
+      gacmp = "git add -A && git commit --amend && git push -f";
+      gd = "git diff HEAD";
+      gs = "git status";
+      ga = "git add -A";
+    };
     interactiveShellInit = ''
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
     '';
