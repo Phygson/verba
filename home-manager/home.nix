@@ -35,9 +35,6 @@
   home = {
     username = "phygson";
     homeDirectory = "/home/phygson";
-    sessionVariables = {
-      NIXOS_OZONE_WL = "1";
-    };
   };
 
   nixpkgs.config.permittedInsecurePackages = [

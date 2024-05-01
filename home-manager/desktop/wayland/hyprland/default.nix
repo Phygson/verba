@@ -13,6 +13,7 @@
       env = __GLX_VENDOR_LIBRARY_NAME,nvidia
       env = WLR_NO_HARDWARE_CURSORS,1
       env = ELECTRON_OZONE_PLATFORM_HINT,auto
+      env = NIXOS_OZONE_WL,1
 
       windowrule = float, ^(waypaper)$
       windowrule = center, ^(waypaper)$
