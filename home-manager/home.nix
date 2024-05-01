@@ -100,7 +100,7 @@
       "nix.serverSettings" = {
         "nixd" = {
           "formatting" = {
-            "command" = ["alejandra"];
+            "command" = ["nix fmt"];
           };
           "options" = {
             "nixos" = {
