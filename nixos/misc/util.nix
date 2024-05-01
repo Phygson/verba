@@ -3,8 +3,7 @@
   pkgs,
   config,
   ...
-}:
-let
+}: let
   cfg = config.z.util;
   zh = pkgs.writeShellScriptBin "zh" ''
     nh home switch

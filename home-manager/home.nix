@@ -61,7 +61,7 @@
     nerdfonts
     vesktop
     whatsapp-for-linux
-    nixd
+    unstable.nix
   ];
 
   z.screenshot = {
