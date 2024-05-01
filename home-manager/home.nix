@@ -91,7 +91,12 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium-fhs;
+    package = pkgs.vscodium.fhsWithPackages (ps: [pkgs.unstable.nixd]);
+    mutableExtensionsDir = false;
+    extensions = with pkgs.unstable.vscode-extensions; [
+      jnoortheen.nix-ide
+      kamadorueda.alejandra
+    ];
     userSettings = {
       "window.titleBarStyle" = "custom";
       "editor.fontFamily" = "'FiraCode Nerd Font', 'monospace', monospace";
