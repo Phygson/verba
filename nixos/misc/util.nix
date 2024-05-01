@@ -4,7 +4,7 @@
   config,
   ...
 }:
-with lib; let
+let
   cfg = config.z.util;
   zh = pkgs.writeShellScriptBin "zh" ''
     nh home switch
@@ -20,13 +20,13 @@ with lib; let
   '';
 in {
   options.z.util = {
-    enable = mkEnableOption "z util";
-    package-nh = mkOption {
-      type = types.package;
+    enable = lib.mkEnableOption "z util";
+    package-nh = lib.mkOption {
+      type = lib.types.package;
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     environment.shellAliases.z = "cd $FLAKE";
     environment.systemPackages = [zh zs za zu cfg.package-nh];
   };

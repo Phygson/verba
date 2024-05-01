@@ -1,9 +1,4 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./binds.nix
     ./settings.nix
@@ -11,7 +6,6 @@
   wayland.windowManager.hyprland = {
     package = pkgs.unstable.hyprland;
     enable = true;
-    # enableNvidiaPatches = true;
     extraConfig = ''
       env = LIBVA_DRIVER_NAME,nvidia
       env = XDG_SESSION_TYPE,wayland

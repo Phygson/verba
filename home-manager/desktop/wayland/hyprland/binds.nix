@@ -1,13 +1,8 @@
 {
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
   wayland.windowManager.hyprland = {
     settings = {
       "$mod" = "SUPER";
-      bind = with pkgs.master;
+      bind =
         [
           "$mod, B, exec, firefox"
           "$mod, RETURN, exec, kitty"

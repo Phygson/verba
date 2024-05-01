@@ -3,24 +3,23 @@
   config,
   pkgs,
   ...
-}:
-with lib; let
+}: let
   cfg = config.z.prismlauncher;
 in {
   options.z.prismlauncher = {
-    enable = mkEnableOption "Prism Launcher";
-    enableWayland = mkEnableOption "Enable running Minecraft natively under Wayland";
-    package = mkOption {
-      type = types.package;
+    enable = lib.mkEnableOption "Prism Launcher";
+    enableWayland = lib.mkEnableOption "Enable running Minecraft natively under Wayland";
+    package = lib.mkOption {
+      type = lib.types.package;
       default = pkgs.prismlauncher;
     };
-    javaPackages = mkOption {
-      type = types.listOf types.package;
+    javaPackages = lib.mkOption {
+      type = lib.types.listOf lib.types.package;
       default = [pkgs.temurin-jre-bin-8];
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = [
       (cfg.package.override {
         jdks = cfg.javaPackages;

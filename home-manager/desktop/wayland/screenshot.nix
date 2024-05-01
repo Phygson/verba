@@ -3,68 +3,65 @@
   config,
   pkgs,
   ...
-}:
-with lib; let
+}: let
   cfg = config.z.screenshot;
 in {
   options.z.screenshot = {
-    enable = mkEnableOption "z screenshot";
-    enableXDG = mkOption {
-      type = types.bool;
+    enable = lib.mkEnableOption "z screenshot";
+    enableXDG = lib.mkOption {
+      type = lib.types.bool;
       default = true;
     };
-    dir = mkOption {
-      type = types.str;
+    dir = lib.mkOption {
+      type = lib.types.str;
       default = "${config.home.homeDirectory}/Pictures/Screenshots";
     };
-    dateFormat = mkOption {
-      type = types.str;
+    dateFormat = lib.mkOption {
+      type = lib.types.str;
       default = "%Y%m%d-%H%M%S";
     };
     hyprland = {
-      enable = mkOption {
-        type = types.bool;
+      enable = lib.mkOption {
+        type = lib.types.bool;
         default = true;
       };
       bind.copy = {
-        enable = mkOption {
-          type = types.bool;
+        enable = lib.mkOption {
+          type = lib.types.bool;
           default = true;
         };
-        bind = mkOption {
-          type = types.listOf types.str;
+        bind = lib.mkOption {
+          type = lib.types.listOf lib.types.str;
           default = ["$mod" "S"];
         };
       };
       bind.copysave = {
-        enable = mkOption {
-          type = types.bool;
+        enable = lib.mkOption {
+          type = lib.types.bool;
           default = true;
         };
-        bind = mkOption {
-          type = types.listOf types.str;
+        bind = lib.mkOption {
+          type = lib.types.listOf lib.types.str;
           default = ["SHIFT $mod" "S"];
         };
       };
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = [pkgs.grimblast];
-    xdg.userDirs.extraConfig.XDG_SCREENSHOTS_DIR = mkIf cfg.enableXDG cfg.dir;
+    xdg.userDirs.extraConfig.XDG_SCREENSHOTS_DIR = lib.mkIf cfg.enableXDG cfg.dir;
     wayland.windowManager.hyprland.settings.bind =
-      optionals (cfg.hyprland.enable && cfg.hyprland.bind.copy.enable) [
-        (with cfg.hyprland.bind.copy;
-          builtins.elemAt bind 0
+      lib.optionals (cfg.hyprland.enable && cfg.hyprland.bind.copy.enable) [
+        (builtins.elemAt cfg.hyprland.bind.copy.bind 0
           + ", "
-          + builtins.elemAt bind 1
+          + builtins.elemAt cfg.hyprland.bind.copy.bind 1
           + ", exec, grimblast --notify copy area")
       ]
-      ++ optionals (cfg.hyprland.enable && cfg.hyprland.bind.copysave.enable) [
-        (with cfg.hyprland.bind.copysave;
-          builtins.elemAt bind 0
+      ++ lib.optionals (cfg.hyprland.enable && cfg.hyprland.bind.copysave.enable) [
+        (builtins.elemAt cfg.hyprland.bind.copysave.bind 0
           + ", "
-          + builtins.elemAt bind 1
+          + builtins.elemAt cfg.hyprland.bind.copysave.bind 1
           + ", exec, grimblast --notify copysave area"
           + cfg.dir
           + "/$(date +\""

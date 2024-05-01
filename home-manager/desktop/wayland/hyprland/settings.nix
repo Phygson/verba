@@ -1,9 +1,4 @@
 {
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
   wayland.windowManager.hyprland.settings = {
     general = {
       "gaps_in" = "2";

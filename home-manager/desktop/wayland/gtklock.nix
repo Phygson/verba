@@ -3,49 +3,46 @@
   config,
   pkgs,
   ...
-}:
-with lib; let
+}: let
   cfg = config.z.gtklock;
 in {
   options.z.gtklock = {
-    enable = mkEnableOption "gtklock";
+    enable = lib.mkEnableOption "gtklock";
     hyprland = {
-      enable = mkEnableOption "Hyprland integration";
-      enableUserinfoModule = mkEnableOption "userinfo-module";
-      enablePowerbarModule = mkEnableOption "powerbar-module";
-      enablePlayectlModule = mkEnableOption "playerctl-module";
-      mod = mkOption {
-        type = types.str;
+      enable = lib.mkEnableOption "Hyprland integration";
+      enableUserinfoModule = lib.mkEnableOption "userinfo-module";
+      enablePowerbarModule = lib.mkEnableOption "powerbar-module";
+      enablePlayectlModule = lib.mkEnableOption "playerctl-module";
+      mod = lib.mkOption {
+        type = lib.types.str;
         default = "SUPER";
       };
-      key = mkOption {
-        type = types.str;
+      key = lib.mkOption {
+        type = lib.types.str;
         default = "L";
       };
     };
-    pkgsInstance = mkOption {
-      type = types.pkgs;
+    pkgsInstance = lib.mkOption {
+      type = lib.types.pkgs;
       default = pkgs;
     };
   };
 
-  config = mkIf cfg.enable {
+  config = lib.mkIf cfg.enable {
     home.packages = [
       cfg.pkgsInstance.gtklock
     ];
 
-    wayland.windowManager.hyprland.settings.bind = with cfg.pkgsInstance;
-    with cfg.hyprland;
-      mkIf enable [
-        (mod
-          + ", "
-          + key
-          + ", exec, gtklock "
-          + builtins.concatStringsSep "" [
-            (optionalString enablePowerbarModule " -m ${gtklock-powerbar-module.out}/lib/gtklock/powerbar-module.so")
-            (optionalString enablePlayectlModule " -m ${gtklock-playerctl-module.out}/lib/gtklock/playerctl-module.so")
-            (optionalString enableUserinfoModule " -m ${gtklock-userinfo-module.out}/lib/gtklock/userinfo-module.so")
-          ])
-      ];
+    wayland.windowManager.hyprland.settings.bind = lib.mkIf cfg.hyprland.enable [
+      (
+        cfg.hyprland.mod
+        + ", "
+        + cfg.hyprland.key
+        + ", exec, gtklock "
+        + (lib.optionalString cfg.hyprland.enablePowerbarModule " -m ${cfg.pkgsInstance.gtklock-powerbar-module.out}/lib/gtklock/powerbar-module.so")
+        + (lib.optionalString cfg.hyprland.enablePlayectlModule " -m ${cfg.pkgsInstance.gtklock-playerctl-module.out}/lib/gtklock/playerctl-module.so")
+        + (lib.optionalString cfg.hyprland.enableUserinfoModule " -m ${cfg.pkgsInstance.gtklock-userinfo-module.out}/lib/gtklock/userinfo-module.so")
+      )
+    ];
   };
 }

@@ -1,9 +1,4 @@
 {
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
   boot.supportedFilesystems = ["btrfs"];
   fileSystems = {
     "/".options = ["compress=zstd" "noatime"];

@@ -1,9 +1,4 @@
-{
-  lib,
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.ncmpcpp = {
     enable = true;
     package = pkgs.ncmpcpp.overrideAttrs (finalAttrs: previousAttrs: {
