@@ -37,10 +37,6 @@
     homeDirectory = "/home/phygson";
   };
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0"
-  ];
-
   home.packages = with pkgs; [
     swaynotificationcenter
     hicolor-icon-theme
@@ -53,7 +49,7 @@
     mpv
     swww
     waypaper
-    obsidian
+    unstable.obsidian
     any-nix-shell
     nerdfonts
     vesktop
