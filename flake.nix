@@ -37,18 +37,15 @@
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
-    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
-
-    # 'nix fmt'
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-    overlays = import ./overlays {inherit inputs;};
+    overlays."unstable-packages" = import ./overlays/unstable-packages {inherit inputs;};
 
     nixosConfigurations = {
       grob = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules = [
-          ./nixos/configuration.nix
+          ./systems/x86_64-linux/grob
         ];
       };
     };
@@ -58,7 +55,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          ./home-manager/home.nix
+          (./. + "/homes/x86_64-linux/phygson@grob")
           inputs.nixvim.homeManagerModules.nixvim
           inputs.nix-index-database.hmModules.nix-index
         ];
