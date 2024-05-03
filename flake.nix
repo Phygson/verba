@@ -36,39 +36,46 @@
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
-  in rec {
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-    overlays = import ./lib/mapOverlays.nix {
+    _overlays = import ./lib/mapOverlays.nix {
       path = ./overlays;
       inherit inputs;
     };
 
-    nixosModules = import ./lib/mapModules.nix {path = ./modules/nixos;};
-    homeManagerModules = import ./lib/mapModules.nix {path = ./modules/home;};
+    _nixosModules = import ./lib/mapModules.nix {path = ./modules/nixos;};
+    _homeManagerModules = import ./lib/mapModules.nix {path = ./modules/home;};
+  in {
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
+
+    overlays = _overlays;
+
+    nixosModules = _nixosModules;
+    homeManagerModules = _homeManagerModules;
 
     nixosConfigurations = {
       grob = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs _overlays;};
         modules =
-          builtins.attrValues nixosModules
-          ++ [
+          [
+            ./lib/applyOverlays.nix
             ./systems/x86_64-linux/grob
-          ];
+          ]
+          ++ builtins.attrValues _nixosModules;
       };
     };
 
     homeConfigurations = {
       "phygson@grob" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {inherit inputs outputs _overlays;};
         modules =
-          builtins.attrValues homeManagerModules
-          ++ [
+          [
+            ./lib/applyOverlays.nix
             (./. + "/homes/x86_64-linux/phygson@grob")
             inputs.nixvim.homeManagerModules.nixvim
             inputs.nix-index-database.hmModules.nix-index
-          ];
+          ]
+          ++ builtins.attrValues _homeManagerModules;
       };
     };
   };

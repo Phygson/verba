@@ -1,4 +1,4 @@
-{
+{...}: {
   imports = [
     ./prismlauncher.nix
   ];

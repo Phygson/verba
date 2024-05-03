@@ -2,6 +2,5 @@
   imports = [
     ./wayland
     ./music
-    ./gaming
   ];
 }

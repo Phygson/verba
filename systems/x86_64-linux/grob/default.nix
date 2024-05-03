@@ -2,7 +2,6 @@
 # Use this to configure your system environment (it replaces /etc/nixos/configuration.nix)
 {
   inputs,
-  outputs,
   lib,
   config,
   pkgs,
@@ -14,9 +13,6 @@
   ];
 
   nixpkgs = {
-    overlays = [
-      outputs.overlays.unstable-packages
-    ];
     # Configure your nixpkgs instance
     config = {
       allowUnfree = true;

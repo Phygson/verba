@@ -1,17 +1,9 @@
-{
-  outputs,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./desktop
   ];
 
   nixpkgs = {
-    # You can add overlays here
-    overlays = [
-      outputs.overlays.unstable-packages
-    ];
     # Configure your nixpkgs instance
     config = {
       allowUnfree = true;
