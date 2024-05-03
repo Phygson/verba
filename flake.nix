@@ -39,18 +39,22 @@
   in rec {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-    overlays."unstable-packages" = import ./overlays/unstable-packages {inherit inputs;};
+    overlays = import ./lib/mapOverlays.nix {
+      path = ./overlays;
+      inherit inputs;
+    };
 
     nixosModules = import ./lib/mapModules.nix {path = ./modules/nixos;};
+    homeManagerModules = import ./lib/mapModules.nix {path = ./modules/home;};
 
     nixosConfigurations = {
       grob = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         modules =
-          [
+          builtins.attrValues nixosModules
+          ++ [
             ./systems/x86_64-linux/grob
-          ]
-          ++ builtins.attrValues nixosModules;
+          ];
       };
     };
 
@@ -58,11 +62,13 @@
       "phygson@grob" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
-        modules = [
-          (./. + "/homes/x86_64-linux/phygson@grob")
-          inputs.nixvim.homeManagerModules.nixvim
-          inputs.nix-index-database.hmModules.nix-index
-        ];
+        modules =
+          builtins.attrValues homeManagerModules
+          ++ [
+            (./. + "/homes/x86_64-linux/phygson@grob")
+            inputs.nixvim.homeManagerModules.nixvim
+            inputs.nix-index-database.hmModules.nix-index
+          ];
       };
     };
   };
