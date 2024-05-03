@@ -11,9 +11,6 @@
   # You can import other NixOS modules here
   imports = [
     ./hardware-configuration.nix
-
-    ./system
-    ./misc
   ];
 
   nixpkgs = {

@@ -1,4 +1,4 @@
-{
+{...}: {
   imports = [
     ./fs.nix
     ./nvidia.nix

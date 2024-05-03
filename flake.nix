@@ -36,17 +36,21 @@
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
-  in {
+  in rec {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     overlays."unstable-packages" = import ./overlays/unstable-packages {inherit inputs;};
 
+    nixosModules = import ./lib/mapModules.nix {path = ./modules/nixos;};
+
     nixosConfigurations = {
       grob = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [
-          ./systems/x86_64-linux/grob
-        ];
+        modules =
+          [
+            ./systems/x86_64-linux/grob
+          ]
+          ++ builtins.attrValues nixosModules;
       };
     };
 
