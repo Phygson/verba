@@ -48,6 +48,12 @@
 
     _nixosModules = z-lib.mapModules ./modules/nixos;
     _homeManagerModules = z-lib.mapModules ./modules/home;
+
+    pkgs = import nixpkgs {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+      overlays = builtins.attrValues _overlays;
+    };
   in {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
@@ -58,10 +64,10 @@
 
     nixosConfigurations = {
       grob = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs _overlays;};
+        inherit pkgs;
+        specialArgs = {inherit inputs outputs;};
         modules =
           [
-            ./lib/applyOverlays.nix
             ./systems/x86_64-linux/grob
           ]
           ++ builtins.attrValues _nixosModules;
@@ -70,11 +76,10 @@
 
     homeConfigurations = {
       "phygson@grob" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs _overlays;};
+        inherit pkgs;
+        extraSpecialArgs = {inherit inputs outputs;};
         modules =
           [
-            ./lib/applyOverlays.nix
             (./. + "/homes/x86_64-linux/phygson@grob")
             inputs.nixvim.homeManagerModules.nixvim
             inputs.nix-index-database.hmModules.nix-index

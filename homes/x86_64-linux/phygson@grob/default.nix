@@ -1,12 +1,4 @@
 {pkgs, ...}: {
-  nixpkgs = {
-    # Configure your nixpkgs instance
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-    };
-  };
-
   home = {
     username = "phygson";
     homeDirectory = "/home/phygson";
