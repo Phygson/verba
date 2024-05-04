@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ./desktop
-  ];
-
   nixpkgs = {
     # Configure your nixpkgs instance
     config = {

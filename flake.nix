@@ -75,7 +75,10 @@
             inputs.nixvim.homeManagerModules.nixvim
             inputs.nix-index-database.hmModules.nix-index
           ]
-          ++ builtins.attrValues _homeManagerModules;
+          ++ (import ./lib/attrValuesFlatten.nix {
+            attrSet = _homeManagerModules;
+            lib = nixpkgs.lib;
+          });
       };
     };
   };
