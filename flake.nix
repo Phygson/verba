@@ -52,25 +52,21 @@
     nixosModules = nixpkgs.lib.mergeAttrs _mixedModules _nixosModules;
     homeManagerModules = nixpkgs.lib.mergeAttrs _mixedModules _homeManagerModules;
 
-    nixosConfigurations = import ./lib/mapSystems.nix {
-      inherit inputs outputs;
-      modules = outputs.nixosModules;
-      lib = nixpkgs.lib;
+    nixosConfigurations = z-lib.mapSystems {
+      inherit inputs outputs nixpkgs;
+      modules = z-lib.attrValuesFlatten nixpkgs.lib outputs.nixosModules;
       path = ./systems;
     };
 
-    homeConfigurations = {
-      "phygson@grob" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        extraSpecialArgs = {inherit inputs outputs;};
-        modules =
-          (z-lib.attrValuesFlatten nixpkgs.lib outputs.homeManagerModules)
-          ++ [
-            (./. + "/homes/x86_64-linux/phygson@grob")
-            inputs.nixvim.homeManagerModules.nixvim
-            inputs.nix-index-database.hmModules.nix-index
-          ];
-      };
+    homeConfigurations = z-lib.mapHomes {
+      inherit inputs outputs nixpkgs home-manager;
+      modules =
+        (z-lib.attrValuesFlatten nixpkgs.lib outputs.homeManagerModules)
+        ++ [
+          inputs.nixvim.homeManagerModules.nixvim
+          inputs.nix-index-database.hmModules.nix-index
+        ];
+      path = ./homes;
     };
   };
 }

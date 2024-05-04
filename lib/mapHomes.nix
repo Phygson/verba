@@ -3,15 +3,16 @@
   outputs,
   modules,
   nixpkgs,
+  home-manager,
   path,
   ...
 }: let
   readSysArch = builtins.attrNames (builtins.readDir path);
   mach = builtins.map (x:
     builtins.mapAttrs (name: value:
-      nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        system = x;
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.${x};
+        extraSpecialArgs = {inherit inputs outputs;};
         modules =
           modules
           ++ [
