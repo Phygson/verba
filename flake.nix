@@ -29,22 +29,17 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
-    # Supported systems for your flake packages, shell, etc.
     systems = [
       "x86_64-linux"
     ];
-    # This is a function that generates an attribute by calling a function you
-    # pass to it, with each system as an argument
+
     forAllSystems = nixpkgs.lib.genAttrs systems;
 
     z-lib = nixpkgs.lib.concatMapAttrs (name: value: {
       ${(nixpkgs.lib.strings.removeSuffix ".nix" name)} = import (./lib + "/${name}");
     }) (builtins.readDir ./lib);
 
-    _overlays = z-lib.mapOverlays {
-      path = ./overlays;
-      inherit inputs;
-    };
+    _overlays = z-lib.mapOverlays inputs ./overlays;
 
     _nixosModules = z-lib.mapModules ./modules/nixos;
     _homeManagerModules = z-lib.mapModules ./modules/home;
@@ -73,10 +68,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules =
-          (z-lib.attrValuesFlatten {
-            attrSet = outputs.homeManagerModules;
-            lib = nixpkgs.lib;
-          })
+          (z-lib.attrValuesFlatten nixpkgs.lib outputs.homeManagerModules)
           ++ [
             (./. + "/homes/x86_64-linux/phygson@grob")
             inputs.nixvim.homeManagerModules.nixvim
