@@ -48,46 +48,40 @@
 
     _nixosModules = z-lib.mapModules ./modules/nixos;
     _homeManagerModules = z-lib.mapModules ./modules/home;
-
-    pkgs = import nixpkgs {
-      system = "x86_64-linux";
-      config.allowUnfree = true;
-      overlays = builtins.attrValues _overlays;
-    };
+    _mixedModules = z-lib.mapModules ./modules/mixed;
   in {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
     overlays = _overlays;
 
-    nixosModules = _nixosModules;
-    homeManagerModules = _homeManagerModules;
+    nixosModules = nixpkgs.lib.mergeAttrs _mixedModules _nixosModules;
+    homeManagerModules = nixpkgs.lib.mergeAttrs _mixedModules _homeManagerModules;
 
     nixosConfigurations = {
       grob = nixpkgs.lib.nixosSystem {
-        inherit pkgs;
         specialArgs = {inherit inputs outputs;};
         modules =
-          [
+          builtins.attrValues outputs.nixosModules
+          ++ [
             ./systems/x86_64-linux/grob
-          ]
-          ++ builtins.attrValues _nixosModules;
+          ];
       };
     };
 
     homeConfigurations = {
       "phygson@grob" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules =
-          [
+          (z-lib.attrValuesFlatten {
+            attrSet = outputs.homeManagerModules;
+            lib = nixpkgs.lib;
+          })
+          ++ [
             (./. + "/homes/x86_64-linux/phygson@grob")
             inputs.nixvim.homeManagerModules.nixvim
             inputs.nix-index-database.hmModules.nix-index
-          ]
-          ++ (z-lib.attrValuesFlatten {
-            attrSet = _homeManagerModules;
-            lib = nixpkgs.lib;
-          });
+          ];
       };
     };
   };
