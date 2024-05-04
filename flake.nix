@@ -4,44 +4,15 @@
     nixpkgs,
     home-manager,
     ...
-  } @ inputs: let
-    inherit (self) outputs;
-    systems = [
-      "x86_64-linux"
-    ];
-
-    forAllSystems = nixpkgs.lib.genAttrs systems;
-
-    z-lib = nixpkgs.lib.concatMapAttrs (name: value: {
-      ${(nixpkgs.lib.strings.removeSuffix ".nix" name)} = import (./lib + "/${name}");
-    }) (builtins.readDir ./lib);
-
-    _mixedModules = z-lib.mapModules ./modules/mixed;
-  in {
-    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
-
-    overlays = z-lib.mapOverlays inputs ./overlays;
-
-    nixosModules = nixpkgs.lib.mergeAttrs (z-lib.mapModules ./modules/nixos) _mixedModules;
-    homeManagerModules = nixpkgs.lib.mergeAttrs (z-lib.mapModules ./modules/home) _mixedModules;
-
-    nixosConfigurations = z-lib.mapSystems {
-      inherit inputs outputs nixpkgs;
-      modules = z-lib.attrValuesFlatten nixpkgs.lib outputs.nixosModules;
-      path = ./systems;
+  } @ inputs:
+    import ./lib/mkFlake.nix {
+      inherit inputs nixpkgs home-manager;
+      outputs = self.outputs;
+      extra-hm-modules = [
+        inputs.nixvim.homeManagerModules.nixvim
+        inputs.nix-index-database.hmModules.nix-index
+      ];
     };
-
-    homeConfigurations = z-lib.mapHomes {
-      inherit inputs outputs nixpkgs home-manager;
-      modules =
-        (z-lib.attrValuesFlatten nixpkgs.lib outputs.homeManagerModules)
-        ++ [
-          inputs.nixvim.homeManagerModules.nixvim
-          inputs.nix-index-database.hmModules.nix-index
-        ];
-      path = ./homes;
-    };
-  };
 
   inputs = {
     # Nixpkgs
