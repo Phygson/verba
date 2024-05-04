@@ -52,15 +52,11 @@
     nixosModules = nixpkgs.lib.mergeAttrs _mixedModules _nixosModules;
     homeManagerModules = nixpkgs.lib.mergeAttrs _mixedModules _homeManagerModules;
 
-    nixosConfigurations = {
-      grob = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
-        modules =
-          builtins.attrValues outputs.nixosModules
-          ++ [
-            ./systems/x86_64-linux/grob
-          ];
-      };
+    nixosConfigurations = import ./lib/mapSystems.nix {
+      inherit inputs outputs;
+      modules = outputs.nixosModules;
+      lib = nixpkgs.lib;
+      path = ./systems;
     };
 
     homeConfigurations = {
