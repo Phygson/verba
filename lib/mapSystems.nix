@@ -13,7 +13,8 @@
         specialArgs = {inherit inputs outputs;};
         system = x;
         modules =
-          modules
+          [({outputs, ...}: {nixpkgs.overlays = builtins.attrValues outputs.overlays;})]
+          ++ modules
           ++ [
             (path + "/${x}" + "/${name}")
           ];

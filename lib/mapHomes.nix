@@ -14,7 +14,8 @@
         pkgs = nixpkgs.legacyPackages.${x};
         extraSpecialArgs = {inherit inputs outputs;};
         modules =
-          modules
+          [({outputs, ...}: {nixpkgs.overlays = builtins.attrValues outputs.overlays;})]
+          ++ modules
           ++ [
             (path + "/${x}" + "/${name}")
           ];
