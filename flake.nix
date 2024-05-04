@@ -37,13 +37,17 @@
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
 
-    _overlays = import ./lib/mapOverlays.nix {
+    z-lib = nixpkgs.lib.concatMapAttrs (name: value: {
+      ${(nixpkgs.lib.strings.removeSuffix ".nix" name)} = import (./lib + "/${name}");
+    }) (builtins.readDir ./lib);
+
+    _overlays = z-lib.mapOverlays {
       path = ./overlays;
       inherit inputs;
     };
 
-    _nixosModules = import ./lib/mapModules.nix {path = ./modules/nixos;};
-    _homeManagerModules = import ./lib/mapModules.nix {path = ./modules/home;};
+    _nixosModules = z-lib.mapModules ./modules/nixos;
+    _homeManagerModules = z-lib.mapModules ./modules/home;
   in {
     formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
@@ -75,7 +79,7 @@
             inputs.nixvim.homeManagerModules.nixvim
             inputs.nix-index-database.hmModules.nix-index
           ]
-          ++ (import ./lib/attrValuesFlatten.nix {
+          ++ (z-lib.attrValuesFlatten {
             attrSet = _homeManagerModules;
             lib = nixpkgs.lib;
           });
