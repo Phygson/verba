@@ -86,6 +86,7 @@
   };
 
   programs.steam.enable = true;
+  programs.gamemode.enable = true;
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
