@@ -24,9 +24,7 @@
     yandex-disk
   ];
 
-  z.screenshot = {
-    enable = true;
-  };
+  z.grimblast.enable = true;
 
   z.gtklock = {
     enable = true;

@@ -4,10 +4,10 @@
   pkgs,
   ...
 }: let
-  cfg = config.z.screenshot;
+  cfg = config.z.grimblast;
 in {
-  options.z.screenshot = {
-    enable = lib.mkEnableOption "z screenshot";
+  options.z.grimblast = {
+    enable = lib.mkEnableOption "z grimblast";
     enableXDG = lib.mkOption {
       type = lib.types.bool;
       default = true;
