@@ -19,7 +19,7 @@
     unstable.obsidian
     any-nix-shell
     nerdfonts
-    vesktop
+    unstable.vesktop
     whatsapp-for-linux
     yandex-disk
   ];
