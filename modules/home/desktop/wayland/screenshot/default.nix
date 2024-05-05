@@ -62,11 +62,7 @@ in {
         (builtins.elemAt cfg.hyprland.bind.copysave.bind 0
           + ", "
           + builtins.elemAt cfg.hyprland.bind.copysave.bind 1
-          + ", exec, grimblast --notify copysave area"
-          + cfg.dir
-          + "/$(date +\""
-          + cfg.dateFormat
-          + "\").png")
+          + ", exec, grimblast --notify copysave area ${cfg.dir}/$(date +\"${cfg.dateFormat}\").png")
       ];
   };
 }

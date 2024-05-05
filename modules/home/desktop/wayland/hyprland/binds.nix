@@ -12,8 +12,6 @@
           ", XF86AudioPlay, exec, mpc toggle"
           ", XF86AudioNext, exec, mpc next"
           ", XF86AudioPrev, exec, mpc prev"
-          "$mod, S, exec, grimblast --notify copy area"
-          "SHIFT $mod, S, exec, grimblast --notify copysave area ~/Pictures/Screenshots/$(date +\"%Y%m%d-%H%M%S\").png"
           "$mod, F, togglefloating,"
         ]
         ++ (
