@@ -56,7 +56,7 @@
   programs.hyprland.portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
 
   environment.sessionVariables = {
-    FLAKE = "/etc/nixos/nix-flake/";
+    FLAKE = "/etc/nixos/";
   };
 
   services.xserver.enable = true;
@@ -87,6 +87,9 @@
 
   programs.steam.enable = true;
   programs.gamemode.enable = true;
+
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
 
   systemd = {
     user.services.polkit-gnome-authentication-agent-1 = {
@@ -122,6 +125,7 @@
     btop
     btrfs-assistant
     polkit_gnome
+    git
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
