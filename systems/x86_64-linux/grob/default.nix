@@ -56,7 +56,7 @@
   programs.hyprland.portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
 
   environment.sessionVariables = {
-    FLAKE = "/etc/nixos/nix-flake/";
+    FLAKE = "/etc/nixos/";
   };
 
   services.xserver.enable = true;
@@ -75,6 +75,9 @@
 
   programs.thunar.enable = true;
   programs.thunar.plugins = with pkgs.xfce; [thunar-volman thunar-archive-plugin];
+
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
 
   users.groups.sysconfmaster = {};
   users.users = {
@@ -122,6 +125,7 @@
     btop
     btrfs-assistant
     polkit_gnome
+    git
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
