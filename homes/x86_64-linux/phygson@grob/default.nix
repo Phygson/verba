@@ -39,7 +39,7 @@
 
   z.prismlauncher = {
     enable = true;
-    enableWayland = true;
+    enableWayland = false;
     javaPackages = with pkgs; [
       temurin-jre-bin-8
       temurin-jre-bin-17
