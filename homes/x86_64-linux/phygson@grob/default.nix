@@ -22,6 +22,8 @@
     unstable.vesktop
     whatsapp-for-linux
     yandex-disk
+    eza
+    bat
   ];
 
   z.grimblast.enable = true;
