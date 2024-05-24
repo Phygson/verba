@@ -143,7 +143,8 @@
       gd = "git diff HEAD";
       gs = "git status";
       ga = "git add -A";
-      l = "eza -l --icons --git -a";
+      l = "eza -l --icons --git";
+      la = "l -a";
     };
     interactiveShellInit = ''
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
