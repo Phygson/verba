@@ -12,6 +12,8 @@
     ./hardware-configuration.nix
   ];
 
+  swapDevices = [{device = "/swap/swapfile";}];
+
   # This will add each flake input as a registry
   # To make nix3 commands consistent with your flake
   nix.registry = (lib.mapAttrs (_: flake: {inherit flake;})) ((lib.filterAttrs (_: lib.isType "flake")) inputs);
@@ -53,6 +55,7 @@
 
   programs.hyprland.enable = true;
   programs.hyprland.package = pkgs.unstable.hyprland;
+  programs.hyprland.xwayland.enable = true;
   programs.hyprland.portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
 
   environment.sessionVariables = {
