@@ -1,9 +1,11 @@
 {pkgs, ...}: {
   programs.ncmpcpp = {
     enable = true;
-    package = (pkgs.ncmpcpp.overrideAttrs (finalAttrs: previousAttrs: {
-      patches = [./ncmpcppFixGenius.patch];
-    })).override {visualizerSupport=true;};
+    package =
+      (pkgs.ncmpcpp.overrideAttrs (finalAttrs: previousAttrs: {
+        patches = [./ncmpcppFixGenius.patch];
+      }))
+      .override {visualizerSupport = true;};
     settings = {
       lyrics_fetchers = "genius";
       follow_now_playing_lyrics = "yes";
