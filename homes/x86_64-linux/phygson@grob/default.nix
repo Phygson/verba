@@ -18,7 +18,7 @@
     waypaper
     unstable.obsidian
     any-nix-shell
-    nerdfonts
+    (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
     unstable.vesktop
     whatsapp-for-linux
     yandex-disk
