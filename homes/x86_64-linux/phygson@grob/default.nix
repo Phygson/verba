@@ -49,11 +49,18 @@
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium.fhsWithPackages (ps: [pkgs.unstable.nixd]);
+    package = pkgs.vscodium.fhsWithPackages (ps: [
+      pkgs.nixd
+      pkgs.python3
+      pkgs.clang-tools
+    ]);
     mutableExtensionsDir = false;
     extensions = with pkgs.unstable.vscode-extensions; [
       jnoortheen.nix-ide
       kamadorueda.alejandra
+      llvm-vs-code-extensions.vscode-clangd
+      arrterian.nix-env-selector
+      mkhl.direnv
     ];
     userSettings = {
       "window.titleBarStyle" = "custom";
