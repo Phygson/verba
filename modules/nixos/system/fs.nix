@@ -9,5 +9,10 @@
       fsType = "ntfs-3g";
       options = ["rw" "uid=1000" "nofail" "x-gvfs-show"];
     };
+    "/shared" = {
+      device = "/dev/disk/by-uuid/FA24F53724F4F789";
+      fsType = "ntfs-3g";
+      options = ["rw" "uid=1000" "nofail" "x-gvfs-show"];
+    };
   };
 }
