@@ -12,6 +12,6 @@
     open = false;
     forceFullCompositionPipeline = false;
     nvidiaPersistenced = true;
-    package = config.boot.kernelPackages.nvidiaPackages.latest;
+    package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 }
