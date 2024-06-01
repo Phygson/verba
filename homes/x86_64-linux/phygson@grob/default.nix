@@ -61,12 +61,14 @@
       jnoortheen.nix-ide
       kamadorueda.alejandra
       llvm-vs-code-extensions.vscode-clangd
-      arrterian.nix-env-selector
+      xaver.clang-format
       mkhl.direnv
-      ms-vscode.cpptools-extension-pack
       jdinhlife.gruvbox
     ];
     userSettings = {
+      "[cpp]" = {
+        "editor.defaultFormatter" = "xaver.clang-format";
+      };
       "window.titleBarStyle" = "custom";
       "editor.fontFamily" = "'FiraCode Nerd Font', 'monospace', monospace";
       "nix.enableLanguageServer" = true;
