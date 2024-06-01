@@ -63,6 +63,8 @@
       llvm-vs-code-extensions.vscode-clangd
       arrterian.nix-env-selector
       mkhl.direnv
+      ms-vscode.cpptools-extension-pack
+      jdinhlife.gruvbox
     ];
     userSettings = {
       "window.titleBarStyle" = "custom";
