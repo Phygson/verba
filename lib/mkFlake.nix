@@ -33,4 +33,10 @@ in {
       ++ extra-hm-modules;
     path = ../homes;
   };
+
+  templates = {
+    cpp = {
+      path = ../templates/cpp;
+    };
+  };
 }
