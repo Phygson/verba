@@ -105,6 +105,11 @@
       exec = "obsidian --ozone-platform=wayland --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations --socket=wayland --disable-gpu";
       terminal = false;
     };
+    VSCodium = {
+      name = "VSCodium";
+      exec = "codium --ozone-platform=wayland --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations --socket=wayland --disable-gpu";
+      terminal = false;
+    };
   };
 
   programs.nixvim = {
