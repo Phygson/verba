@@ -53,8 +53,6 @@
     enable = true;
     package = pkgs.vscodium.fhsWithPackages (ps: [
       pkgs.nixd
-      pkgs.python3
-      pkgs.clang-tools
     ]);
     mutableExtensionsDir = false;
     extensions = with pkgs.unstable.vscode-extensions; [
@@ -66,11 +64,19 @@
       jdinhlife.gruvbox
     ];
     userSettings = {
+      "editor.fontFamily" = "'FiraCode Nerd Font Mono'";
+      "editor.fontLigatures" = true;
+      "terminal.integrated.shellIntegration.enabled" = false;
+      "terminal.integrated.defaultProfile.linux" = "fish";
+      "terminal.integrated.cursorStyle" = "line";
+      "terminal.explorerKind" = "integrated";
+      "terminal.integrated.cursorBlinking" = true;
+      "terminal.integrated.shellIntegration.decorationsEnabled" = "never";
+      "workbench.colorTheme" = "Default Dark Modern";
       "[cpp]" = {
         "editor.defaultFormatter" = "xaver.clang-format";
       };
       "window.titleBarStyle" = "custom";
-      "editor.fontFamily" = "'FiraCode Nerd Font', 'monospace', monospace";
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nixd";
       "nix.serverSettings" = {
