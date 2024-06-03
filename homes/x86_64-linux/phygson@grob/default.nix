@@ -59,7 +59,6 @@
       jnoortheen.nix-ide
       kamadorueda.alejandra
       llvm-vs-code-extensions.vscode-clangd
-      xaver.clang-format
       mkhl.direnv
       jdinhlife.gruvbox
     ];
@@ -74,9 +73,8 @@
       "terminal.integrated.shellIntegration.decorationsEnabled" = "never";
       "workbench.colorTheme" = "Default Dark Modern";
       "[cpp]" = {
-        "editor.defaultFormatter" = "xaver.clang-format";
+        "editor.defaultFormatter" = "llvm-vs-code-extensions.vscode-clangd";
       };
-      "window.titleBarStyle" = "custom";
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nixd";
       "nix.serverSettings" = {
@@ -104,16 +102,6 @@
     waypaper = {
       name = "waypaper";
       exec = "waypaper";
-      terminal = false;
-    };
-    obsidian = {
-      name = "Obsidian";
-      exec = "obsidian --ozone-platform=wayland --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations --socket=wayland --disable-gpu";
-      terminal = false;
-    };
-    VSCodium = {
-      name = "VSCodium";
-      exec = "codium --ozone-platform=wayland --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations --socket=wayland --disable-gpu";
       terminal = false;
     };
   };
