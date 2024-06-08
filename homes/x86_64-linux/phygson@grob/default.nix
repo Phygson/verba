@@ -7,7 +7,7 @@
   home.packages = with pkgs; [
     swaynotificationcenter
     hicolor-icon-theme
-    unstable._64gram
+    _64gram
     qbittorrent
     ruffle
     libreoffice-fresh
@@ -16,10 +16,10 @@
     mpv
     swww
     waypaper
-    unstable.obsidian
+    obsidian
     any-nix-shell
     (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
-    unstable.vesktop
+    vesktop
     whatsapp-for-linux
     yandex-disk
     eza
@@ -55,7 +55,7 @@
       pkgs.nixd
     ]);
     mutableExtensionsDir = false;
-    extensions = with pkgs.unstable.vscode-extensions; [
+    extensions = with pkgs.vscode-extensions; [
       jnoortheen.nix-ide
       kamadorueda.alejandra
       llvm-vs-code-extensions.vscode-clangd
