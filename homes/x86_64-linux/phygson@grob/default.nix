@@ -61,6 +61,8 @@
       llvm-vs-code-extensions.vscode-clangd
       mkhl.direnv
       jdinhlife.gruvbox
+      haskell.haskell
+      justusadam.language-haskell
     ];
     userSettings = {
       "editor.fontFamily" = "'FiraCode Nerd Font Mono'";
