@@ -4,7 +4,7 @@
     ./settings.nix
   ];
   wayland.windowManager.hyprland = {
-    package = pkgs.hyprland;
+    package = pkgs.unstable.hyprland;
     enable = true;
     extraConfig = ''
       env = LIBVA_DRIVER_NAME,nvidia

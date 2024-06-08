@@ -10,6 +10,12 @@
       perSystem = {pkgs, ...}: {
         devShells.default =
           pkgs.mkShell.override {stdenv = pkgs.gcc14Stdenv;} {
+            packages = with pkgs; [
+              clang-tools
+              meson
+              ninja
+              cmake
+            ];
           };
       };
     };

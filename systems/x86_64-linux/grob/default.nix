@@ -54,9 +54,9 @@
   };
 
   programs.hyprland.enable = true;
-  programs.hyprland.package = pkgs.hyprland;
+  programs.hyprland.package = pkgs.unstable.hyprland;
   programs.hyprland.xwayland.enable = true;
-  programs.hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;
+  programs.hyprland.portalPackage = pkgs.unstable.xdg-desktop-portal-hyprland;
 
   environment.sessionVariables = {
     FLAKE = "/etc/nixos/";
@@ -77,7 +77,7 @@
   xdg = {
     portal = {
       enable = true;
-      wlr.enable = false;
+      wlr.enable = true;
     };
   };
 
