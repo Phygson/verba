@@ -41,7 +41,7 @@
 
   z.prismlauncher = {
     enable = true;
-    enableWayland = false;
+    enableWayland = true;
     javaPackages = with pkgs; [
       temurin-jre-bin-8
       temurin-jre-bin-17
@@ -54,7 +54,8 @@
     package = pkgs.vscodium.fhsWithPackages (ps: [
       pkgs.nixd
     ]);
-    mutableExtensionsDir = false;
+    mutableExtensionsDir = true;
+    enableExtensionUpdateCheck = false;
     extensions = with pkgs.unstable.vscode-extensions; [
       jnoortheen.nix-ide
       kamadorueda.alejandra
@@ -77,6 +78,7 @@
       "[cpp]" = {
         "editor.defaultFormatter" = "llvm-vs-code-extensions.vscode-clangd";
       };
+      "editor.formatOnSave" = true;
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nixd";
       "nix.serverSettings" = {

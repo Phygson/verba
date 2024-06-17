@@ -8,15 +8,14 @@
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = ["x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin"];
       perSystem = {pkgs, ...}: {
-        devShells.default =
-          pkgs.mkShell.override {stdenv = pkgs.gcc14Stdenv;} {
-            packages = with pkgs; [
-              clang-tools
-              meson
-              ninja
-              cmake
-            ];
-          };
+        devShells.default = pkgs.mkShell.override {stdenv = pkgs.gcc14Stdenv;} {
+          packages = with pkgs; [
+            clang-tools
+            meson
+            ninja
+            cmake
+          ];
+        };
       };
     };
 }
