@@ -26,9 +26,9 @@
     bat
   ];
 
-  z.grimblast.enable = true;
+  verba.grimblast.enable = true;
 
-  z.gtklock = {
+  verba.gtklock = {
     enable = true;
     pkgsInstance = pkgs.master;
     hyprland = {
@@ -39,7 +39,7 @@
     };
   };
 
-  z.prismlauncher = {
+  verba.prismlauncher = {
     enable = true;
     enableWayland = true;
     javaPackages = with pkgs; [
@@ -49,7 +49,7 @@
     ];
   };
 
-  z.vscode.enable = true;
+  verba.vscode.enable = true;
 
   xdg.enable = true;
   xdg.userDirs.enable = true;

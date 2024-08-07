@@ -4,29 +4,29 @@
   config,
   ...
 }: let
-  cfg = config.z.util;
-  zh = pkgs.writeShellScriptBin "zh" ''
+  cfg = config.verba.util;
+  vh = pkgs.writeShellScriptBin "vh" ''
     nh home switch
   '';
-  zs = pkgs.writeShellScriptBin "zs" ''
+  vs = pkgs.writeShellScriptBin "vs" ''
     nh os switch
   '';
-  za = pkgs.writeShellScriptBin "za" ''
+  va = pkgs.writeShellScriptBin "va" ''
     nh os switch && nh home switch
   '';
-  zu = pkgs.writeShellScriptBin "zu" ''
+  vu = pkgs.writeShellScriptBin "vu" ''
     nix flake update --commit-lock-file $FLAKE
   '';
 in {
-  options.z.util = {
-    enable = lib.mkEnableOption "z util";
+  options.verba.util = {
+    enable = lib.mkEnableOption "v util";
     package-nh = lib.mkOption {
       type = lib.types.package;
     };
   };
 
   config = lib.mkIf cfg.enable {
-    environment.shellAliases.z = "cd $FLAKE";
-    environment.systemPackages = [zh zs za zu cfg.package-nh];
+    environment.shellAliases.v = "cd $FLAKE";
+    environment.systemPackages = [vh vs va vu cfg.package-nh];
   };
 }

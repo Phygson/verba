@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.z.gtklock;
+  cfg = config.verba.gtklock;
 in {
-  options.z.gtklock = {
+  options.verba.gtklock = {
     enable = lib.mkEnableOption "gtklock";
     hyprland = {
       enable = lib.mkEnableOption "Hyprland integration";

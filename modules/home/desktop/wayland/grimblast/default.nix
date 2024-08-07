@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.z.grimblast;
+  cfg = config.verba.grimblast;
 in {
-  options.z.grimblast = {
+  options.verba.grimblast = {
     enable = lib.mkEnableOption "z grimblast";
     enableXDG = lib.mkOption {
       type = lib.types.bool;

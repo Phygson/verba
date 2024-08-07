@@ -111,7 +111,7 @@
     };
   };
 
-  z.util = {
+  verba.util = {
     enable = true;
     package-nh = inputs.nh.packages.x86_64-linux.default;
   };

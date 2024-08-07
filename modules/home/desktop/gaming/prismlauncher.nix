@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.z.prismlauncher;
+  cfg = config.verba.prismlauncher;
 in {
-  options.z.prismlauncher = {
+  options.verba.prismlauncher = {
     enable = lib.mkEnableOption "Prism Launcher";
     enableWayland = lib.mkEnableOption "Enable running Minecraft natively under Wayland";
     package = lib.mkOption {

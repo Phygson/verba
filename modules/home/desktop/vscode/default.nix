@@ -4,9 +4,9 @@
   pkgs,
   ...
 }: let
-  cfg = config.z.vscode;
+  cfg = config.verba.vscode;
 in {
-  options.z.vscode = {
+  options.verba.vscode = {
     enable = lib.mkEnableOption "Visual Studio Code";
   };
 
