@@ -11,12 +11,12 @@ in {
   };
 
   config = {
-    xdg.desktopEntries.obsidian-wl = lib.mkIf cfg.obsidian.enable {
+    xdg.desktopEntries.obsidian = lib.mkIf cfg.obsidian.enable {
       name = "Obsidian";
       exec = "obsidian --ozone-platform=wayland --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations --socket=wayland --disable-gpu";
       terminal = false;
     };
-    xdg.desktopEntries.VSCodium = lib.mkIf cfg.vscodium.enable {
+    xdg.desktopEntries.codium = lib.mkIf cfg.vscodium.enable {
       name = "VSCodium";
       exec = "codium --ozone-platform=wayland --ozone-platform-hint=auto --enable-features=UseOzonePlatform,WaylandWindowDecorations --socket=wayland --disable-gpu";
       terminal = false;

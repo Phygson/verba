@@ -50,7 +50,7 @@
   };
 
   verba.vscode.enable = true;
-  verba.wl-workarounds.vscodium.enable = false;
+  verba.wl-workarounds.vscodium.enable = true;
   verba.wl-workarounds.obsidian.enable = false;
 
   xdg.enable = true;
