@@ -64,11 +64,7 @@
 
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
-  environment.plasma5.excludePackages = with pkgs.kdePackages; [
-    plasma-browser-integration
-    konsole
-  ];
+  services.desktopManager.plasma6.enable = true;
   services.xserver.xkb.layout = "us,ru";
   services.xserver.xkb.options = "grp:alt_shift_toggle";
 
