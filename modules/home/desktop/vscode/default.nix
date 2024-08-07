@@ -18,7 +18,7 @@ in {
       ]);
       mutableExtensionsDir = true;
       enableExtensionUpdateCheck = false;
-      extensions = with pkgs.unstable.vscode-extensions; [
+      extensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
         kamadorueda.alejandra
         llvm-vs-code-extensions.vscode-clangd
