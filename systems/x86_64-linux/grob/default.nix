@@ -12,7 +12,7 @@
     ./hardware-configuration.nix
   ];
 
-  swapDevices = [{device = "/swap/swapfile";}];
+  # swapDevices = [{device = "/swap/swapfile";}];
 
   # This will add each flake input as a registry
   # To make nix3 commands consistent with your flake
@@ -77,7 +77,7 @@
   xdg = {
     portal = {
       enable = true;
-      wlr.enable = true;
+      # wlr.enable = true;
     };
   };
 
