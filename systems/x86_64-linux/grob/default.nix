@@ -59,7 +59,7 @@
   programs.hyprland.portalPackage = pkgs.xdg-desktop-portal-hyprland;
 
   environment.sessionVariables = {
-    FLAKE = "/etc/nixos/";
+    FLAKE = "/etc/nixos/verba";
   };
 
   services.xserver.enable = true;
