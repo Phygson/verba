@@ -50,6 +50,8 @@
   };
 
   verba.vscode.enable = true;
+  verba.wl-workarounds.vscodium.enable = false;
+  verba.wl-workarounds.obsidian.enable = false;
 
   xdg.enable = true;
   xdg.userDirs.enable = true;
