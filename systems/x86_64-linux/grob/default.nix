@@ -134,6 +134,9 @@
     btrfs-assistant
     polkit_gnome
     git
+    zapret
+    cryptsetup
+    hydrus
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
