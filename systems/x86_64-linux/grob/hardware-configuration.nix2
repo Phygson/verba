@@ -19,28 +19,22 @@
       options = [ "subvol=@nixos" ];
     };
 
-  fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/4187ad70-3e06-4be8-8aa7-bd10bfa5df21";
-      fsType = "btrfs";
-      options = [ "subvol=@nix" ];
-    };
-
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/4187ad70-3e06-4be8-8aa7-bd10bfa5df21";
       fsType = "btrfs";
       options = [ "subvol=@home" ];
     };
 
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/4187ad70-3e06-4be8-8aa7-bd10bfa5df21";
+      fsType = "btrfs";
+      options = [ "subvol=@nix" ];
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/F120-DF5E";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
-    };
-
-  fileSystems."/SteamLibrary" =
-    { device = "/dev/disk/by-uuid/4187ad70-3e06-4be8-8aa7-bd10bfa5df21";
-      fsType = "btrfs";
-      options = [ "subvol=@steamLibrary" ];
     };
 
   swapDevices = [ ];
