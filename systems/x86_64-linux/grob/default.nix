@@ -130,7 +130,6 @@
     btrfs-assistant
     polkit_gnome
     git
-    zapret
     cryptsetup
     hydrus
   ];
