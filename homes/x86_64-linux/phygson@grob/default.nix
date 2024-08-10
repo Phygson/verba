@@ -64,14 +64,14 @@
     };
   };
 
-  programs.nixvim = {
-    enable = true;
-    colorschemes.gruvbox.enable = true;
-    plugins = {
-      nix.enable = true;
-      chadtree.enable = true;
-    };
-  };
+  #programs.nixvim = {
+  #  enable = true;
+  #  colorschemes.gruvbox.enable = true;
+  #  plugins = {
+  #    nix.enable = true;
+  #    chadtree.enable = true;
+  #  };
+  #};
 
   programs.direnv = {
     enable = true;
